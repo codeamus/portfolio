@@ -1,30 +1,61 @@
 ---
-import ProfilePicture from "@assets/img/profile.webp";
+import ProfilePicture from "@assets/img/about-me.webp";
 ---
 
 <section
-  class="flex flex-col items-center justify-between gap-4 px-10 py-10 md:flex-row md:px-20 md:py-20 xl:px-72"
+  class="flex flex-col items-center justify-between gap-6 px-10 py-10 md:flex-row md:px-20 md:py-20 xl:px-72"
+  id="inicio"
 >
   <div class="flex w-full flex-col">
     <h1
       class="text-balance text-center font-pacifico text-4xl text-[#fff] lg:text-start lg:text-6xl"
     >
-      Hola, Soy <span class="text-[#7477FF]">M</span>atias, <br /> Desarrollador
-      de Software
+      Landing pages modernas <br />
+      para tu <span class="text-[#7477FF]">negocio</span>
     </h1>
+
     <p
-      class="text-md my-8 max-w-lg text-balance text-center text-[#fff] lg:text-start"
+      class="text-md my-6 max-w-lg text-balance text-center text-[#fff] lg:text-start"
     >
-      Ocho años de experiencia, especializado en <span
-        class="font-bold text-[#7477FF]">Frontend</span
-      >. He entregado soluciones de alta calidad en entornos dinámicos.
+      Desarrollo sitios web rápidos, claros y optimizados para captar clientes.
+      Ideal para pymes, emprendimientos y profesionales que necesitan presencia
+      online sin complicarse.
     </p>
+
+    <p
+      class="max-w-lg text-balance text-center text-sm text-[#ffffffb3] lg:text-start"
+    >
+      Más de 8 años construyendo soluciones digitales con React, Astro y React
+      Native, ahora enfocado en landing pages efectivas para Chile.
+    </p>
+
+    <div
+      class="mt-8 flex flex-col items-center gap-3 text-sm lg:flex-row lg:justify-start"
+    >
+      <a
+        href="https://wa.me/569XXXXXXXX?text=Hola%2C%20quiero%20una%20landing%20page%20para%20mi%20negocio"
+        class="w-full rounded-xl bg-[#7477FF] px-6 py-3 text-center font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#8a8dff] md:w-auto"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Crear mi sitio
+      </a>
+
+      <a
+        href="#proyectos"
+        class="w-full rounded-xl border border-[#ffffff40] px-6 py-3 text-center font-semibold uppercase tracking-wide text-[#ffffffd9] transition-all duration-300 hover:bg-[#ffffff14] md:w-auto"
+      >
+        Ver proyectos
+      </a>
+    </div>
   </div>
-  <div>
+
+  <div class="mt-6 flex w-full justify-center md:mt-0 md:w-auto">
     <img
-      class="aspect-[4/4.6] w-full max-w-[700px] rounded-xl shadow-md"
+      class="aspect-[4/4.6] w-full max-w-[768px] rounded-xl shadow-md"
       src={ProfilePicture.src}
-      alt="Imagen de perfil de Matias, tomando una taza de café"
+      alt="Imagen de perfil de Matías, desarrollador de software"
+      loading="lazy"
     />
   </div>
 </section>

@@ -1,0 +1,75 @@
+---
+const PLANS = [
+  {
+    name: "Landing rápida",
+    price: "Desde $250.000 CLP",
+    highlight: "Ideal para emprendedores y pymes",
+    features: [
+      "1 página clara y enfocada en conversión",
+      "Diseño moderno y adaptable a móviles",
+      "Formulario de contacto conectado a WhatsApp",
+      "Integración con Google Maps (si aplica)",
+      "SEO técnico básico (títulos, descripciones, estructura)",
+      "Entrega en pocos días según complejidad",
+    ],
+  },
+  {
+    name: "Sitio multi-sección",
+    price: "Desde $450.000 CLP",
+    highlight: "Para negocios con más contenido",
+    features: [
+      "Hasta 4–5 secciones (inicio, servicios, contacto, etc.)",
+      "Diseño consistente y personalizado",
+      "Formularios y llamadas a la acción",
+      "Optimización básica de velocidad y SEO",
+      "Integración con herramientas como Analytics",
+    ],
+  },
+  {
+    name: "Mantenimiento mensual",
+    price: "$25.000 – $50.000 CLP / mes",
+    highlight: "Olvídate de lo técnico",
+    features: [
+      "Backups y revisión técnica mensual",
+      "Actualización de textos e imágenes pequeñas",
+      "Monitoreo básico de caídas",
+      "Soporte vía WhatsApp o correo",
+    ],
+  },
+];
+---
+
+<section id="servicios" class="px-10 py-12 md:px-20 md:py-16 xl:px-72">
+  <div class="mx-auto max-w-4xl text-center">
+    <h2 class="text-2xl font-semibold text-white md:text-3xl">
+      Servicios pensados para negocios reales
+    </h2>
+    <p class="mt-4 text-sm text-white/70 md:text-base">
+      Planes simples, sin tecnicismos innecesarios. Tú me cuentas de tu negocio
+      y yo me encargo del sitio.
+    </p>
+  </div>
+
+  <div class="mt-10 grid gap-6 md:grid-cols-3">
+    {
+      PLANS.map((plan) => (
+        <article class="flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 text-white shadow-md backdrop-blur-sm">
+          <div>
+            <h3 class="text-lg font-semibold">{plan.name}</h3>
+            <p class="mt-1 text-sm font-medium text-[#7477FF]">{plan.price}</p>
+            <p class="mt-2 text-xs text-white/70">{plan.highlight}</p>
+
+            <ul class="mt-4 space-y-2 text-xs text-white/80">
+              {plan.features.map((item) => (
+                <li class="flex gap-2">
+                  <span class="mt-[6px] inline-block h-1.5 w-1.5 rounded-full bg-[#7477FF]" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

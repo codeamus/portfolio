@@ -1,50 +1,81 @@
 ---
 import IconLinkedin from "@assets/icons/linkedin-white.astro";
-import IconCV from "@assets/icons/curriculum.astro";
-const MENU_LINKS = [
+import Logo from "@assets/img/logos/logo.webp";
+
+const SOCIAL_LINKS = [
   {
     Icon: IconLinkedin,
     url: "https://www.linkedin.com/in/codeamus/",
-  },
-  {
-    Icon: IconCV,
-    url: "/assets/cv_alexander.pdf",
+    label: "Ver perfil de LinkedIn",
   },
 ];
 
-import Logo from "@assets/img/logos/logo.webp";
-import { Image } from "astro:assets";
+const WHATSAPP_URL =
+  "https://wa.me/569XXXXXXXX?text=Hola%20Matías,%20quiero%20una%20landing%20page%20para%20mi%20negocio.";
 ---
 
 <nav
-  class="flex flex-row items-center justify-between px-10 py-7 md:px-20 xl:px-72"
+  class="sticky top-0 z-20 flex items-center justify-between bg-[#050816]/80 px-6 py-4 backdrop-blur-sm md:px-12 xl:px-72"
 >
   <a
-    class="text-xs font-bold text-[#fff]"
+    class="flex items-center gap-2"
     href="/"
-    aria-label="Link a la página principal del portafolio"
+    aria-label="Volver al inicio de Codeamus"
   >
     <img
-      class="w-full max-w-[120px] transition-all duration-300 hover:scale-105"
+      class="w-full max-w-[120px] transition-transform duration-300 hover:scale-105"
       src={Logo.src}
-      alt="Logo de mi marca personal Codeamus"
+      alt="Logo de Codeamus"
+      loading="lazy"
     />
   </a>
-  <ul class="flex flex-row items-center gap-2">
-    {
-      MENU_LINKS.map(({ Icon, url }) => (
-        <li>
-          <a
-            class="flex cursor-pointer items-center gap-2 rounded-md p-2 text-xs uppercase text-[#fff] transition-all duration-300 hover:bg-[#7477FF]"
-            rel="noopener noreferrer"
-            aria-label="Link a la página principal del portafolio"
-            href={url}
-            target="_blank"
-          >
-            <Icon className="size-6" color="#fff" />
-          </a>
-        </li>
-      ))
-    }
-  </ul>
+
+  <div class="flex items-center gap-6">
+    <ul
+      class="hidden items-center gap-4 text-xs font-medium text-white md:flex"
+    >
+      <li>
+        <a href="#servicios" class="transition-colors hover:text-[#7477FF]">
+          Servicios
+        </a>
+      </li>
+      <li>
+        <a href="#proyectos" class="transition-colors hover:text-[#7477FF]">
+          Proyectos
+        </a>
+      </li>
+      <li>
+        <a href="#sobre-mi" class="transition-colors hover:text-[#7477FF]">
+          Sobre mí
+        </a>
+      </li>
+    </ul>
+
+    <a
+      href={WHATSAPP_URL}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden items-center rounded-full bg-[#7477FF] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#8a8dff] sm:inline-flex"
+    >
+      Hablemos de tu sitio
+    </a>
+
+    <ul class="flex items-center gap-2">
+      {
+        SOCIAL_LINKS.map(({ Icon, url, label }) => (
+          <li>
+            <a
+              class="flex items-center rounded-md p-2 text-xs text-white transition-colors duration-300 hover:bg-[#7477FF]"
+              rel="noopener noreferrer"
+              aria-label={label}
+              href={url}
+              target="_blank"
+            >
+              <Icon class="size-5" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
 </nav>

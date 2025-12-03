@@ -1,8 +1,7 @@
 ---
-import IconGithub from "@assets/icons/github.astro";
 import IconWebSite from "@assets/icons/world.astro";
-
 import { getCollection } from "astro:content";
+
 const projects = await getCollection("projects");
 ---
 
@@ -10,85 +9,79 @@ const projects = await getCollection("projects");
   id="proyectos"
   class="flex flex-col justify-between gap-8 bg-[#1E293B] px-10 py-20 md:px-20 xl:px-72"
 >
-  <div class="w-fit">
+  <header class="max-w-3xl">
     <h2
-      class="mb-5 w-fit border-b-4 border-solid text-2xl font-bold text-white"
+      class="mb-2 w-fit border-b-4 border-solid text-2xl font-bold text-white"
     >
-      Proyectos
+      Proyectos reales
     </h2>
-  </div>
-  <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+    <p class="text-sm text-white/70">
+      Algunos sitios y campañas en los que he trabajado. Todos con el mismo
+      objetivo: ayudar a negocios reales a tener una presencia online clara,
+      moderna y lista para convertir.
+    </p>
+  </header>
+
+  <div class="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2">
     {
       projects.map((project) => {
         const { data, slug } = project;
-        const {
-          title,
-          description,
-          image_desktop,
-          image_mobile,
-          github,
-          website,
-        } = data;
+        const { title, description, image_desktop, image_mobile, website } =
+          data;
+
+        const projectUrl = `/projects/${slug}`;
+        const ariaTitle = `Visitar el sitio web de ${title}`;
+        const ariaGithub = `Visitar el repositorio GitHub de ${title}`;
+
         return (
-          <article class="mb-5 border-b border-[#7477FF] lg:border-none">
-            <div class="header">
+          <article class="flex flex-col justify-between rounded-2xl bg-[#020617]/40 p-5 shadow-md ring-1 ring-white/5">
+            <div>
               <h3
-                class="group relative mb-3 w-fit text-xl font-bold text-[#7477FF]"
+                class="group relative mb-2 w-fit text-xl font-bold text-[#7477FF]"
                 transition:name={`name-${title}`}
               >
                 {title}
+                <span class="absolute -bottom-1 left-0 h-[2px] w-7 bg-[#7477FF]/80 transition-all duration-300 group-hover:w-full group-hover:bg-white" />
               </h3>
-              <p class="text-md mb-5 text-pretty text-white">{description}</p>
-            </div>
-            <div class="body">
-              <a href={slug}>
-                <img
-                  transition:name={`img-${slug}`}
-                  src={image_desktop}
-                  alt={`Imagen demostrativa versión escritorio del sitio web ${title}`}
-                  class="mt-5 hidden w-full rounded-lg brightness-50 transition-all duration-300 hover:brightness-100 lg:block"
-                  loading="lazy"
-                />
-                <img
-                  transition:name={`img-${slug}`}
-                  src={image_mobile}
-                  alt={`Imagen demostrativa versión mobile del sitio web ${title}`}
-                  class="mt-5 block w-full rounded-lg brightness-50 transition-all duration-300 hover:brightness-100 lg:hidden"
-                  loading="lazy"
-                />
+              <p class="text-sm text-white/80">{description}</p>
+
+              <a href={projectUrl}>
+                <picture>
+                  <source srcset={image_desktop} media="(min-width: 1024px)" />
+                  <img
+                    transition:name={`img-${slug}`}
+                    src={image_mobile}
+                    alt={`Vista del sitio web ${title}`}
+                    class="mt-5 w-full rounded-lg brightness-50 transition-all duration-300 hover:brightness-100"
+                    loading="lazy"
+                  />
+                </picture>
               </a>
             </div>
-            <div class="footer">
-              <a href={slug}>
-                <p class="text-lg group relative mb-3 mt-4 w-fit text-[#7477FF] transition-colors duration-500 hover:text-white">
-                  Más información de {title}
+
+            <footer class="mt-5 flex flex-col gap-3">
+              <a href={projectUrl}>
+                <p class="group relative w-fit text-sm font-semibold text-[#7477FF] transition-colors duration-300 hover:text-white">
+                  Ver más detalles de este proyecto
                   <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
                 </p>
               </a>
-              <ul class="my-7 flex flex-row gap-3">
-                <li>
+
+              <div class="flex items-center gap-4 text-xs text-white/70">
+                {website && (
                   <a
-                    class="hover:animate-pulse"
-                    href={github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Visitar el repositorio Github de Cheffify"
-                  >
-                    <IconGithub className="size-6" color="#fff" />
-                  </a>
-                </li>
-                <li>
-                  <a
+                    class="flex items-center gap-2 hover:text-white/100"
                     href={website}
                     target="_blank"
                     rel="noopener noreferrer"
-                    aria-label="Visitar el sitio web de Cheffify"
+                    aria-label={ariaTitle}
                   >
-                    <IconWebSite className="size-6" color="#fff" />
+                    <IconWebSite className="size-5" />
+                    <span>Ver sitio</span>
                   </a>
-                </li>
-              </ul>
-            </div>
+                )}
+              </div>
+            </footer>
           </article>
         );
       })
