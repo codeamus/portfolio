@@ -1,51 +1,66 @@
 ---
-// import { Image } from "astro:assets";
 import IconLinkedin from "@assets/icons/linkedin.astro";
 import IconGithub from "@assets/icons/github.astro";
 import IconGmail from "@assets/icons/gmail.astro";
-
-// import Logo from "@assets/img/logos/logo.svg";
 ---
 
 <footer
-  class="flex flex-row items-center justify-between px-10 py-5 md:px-20 xl:px-72"
+  class="border-t border-white/10 bg-[#020617] px-10 py-10 md:px-20 xl:px-72"
 >
-  <!-- <a href="/">
-    <Image
-      class="transition-all duration-300 hover:scale-105"
-      src={Logo}
-      alt="Logo de CodeAmus, el nombre mio como empresa"
-      width={80}
-    />
-  </a> -->
-  <ul class="flex flex-row gap-5">
-    <li>
+  <div
+    class="flex flex-col items-start justify-between gap-6 md:flex-row md:items-center"
+  >
+    <div>
+      <p class="md:text-lg text-base font-semibold text-white">
+        ¿Quieres que construya tu sitio?
+      </p>
+      <p class="mt-2 max-w-md text-xs text-white/70 md:text-sm">
+        Escríbeme y vemos si una landing o un sitio multi-sección es lo mejor
+        para tu negocio. Te explico el proceso, tiempos y próximos pasos.
+      </p>
       <a
-        href="https://www.linkedin.com/in/codeamus/"
+        href="https://wa.me/569XXXXXXXX?text=Hola,%20quiero%20cotizar%20un%20sitio%20web"
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Link con la url al linkedin de Matias"
+        class="mt-4 inline-block rounded-lg bg-[#7477FF] px-6 py-3 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-[#8a8dff]"
       >
-        <IconLinkedin className="size-5 transition-all hover:scale-110" />
+        Hablemos por WhatsApp
       </a>
-    </li>
-    <li>
-      <a
-        href="https://github.com/amus-dev"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Link con la url al github de Matias"
-      >
-        <IconGithub className="size-5 transition-all hover:scale-110" />
-      </a>
-    </li>
-    <li>
-      <a
-        href="mailto:contact@codeamus.dev"
-        aria-label="Link para abril el email y enviar un correo a Matias"
-      >
-        <IconGmail className="size-5 transition-all hover:scale-110" />
-      </a>
-    </li>
-  </ul>
+    </div>
+
+    <ul class="flex flex-row gap-5">
+      <li>
+        <a
+          href="https://www.linkedin.com/in/codeamus/"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Link con la url al linkedin de Matias"
+        >
+          <IconLinkedin class="size-5 transition-all hover:scale-110" />
+        </a>
+      </li>
+      <li>
+        <a
+          href="https://github.com/amus-dev"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Link con la url al github de Matias"
+        >
+          <IconGithub className="size-5 transition-all hover:scale-110" />
+        </a>
+      </li>
+      <li>
+        <a
+          href="mailto:contact@codeamus.dev"
+          aria-label="Link para abrir el email y enviar un correo a Matias"
+        >
+          <IconGmail class="size-5 transition-all hover:scale-110" />
+        </a>
+      </li>
+    </ul>
+  </div>
+
+  <p class="mt-5 text-[11px] text-white/40">
+    © {new Date().getFullYear()} Codeamus. Sitios web y landing pages para negocios.
+  </p>
 </footer>

@@ -1,0 +1,62 @@
+---
+const FAQS = [
+  {
+    question: "¿Cuánto se demora en estar listo mi sitio?",
+    answer:
+      "Depende del plan y qué tan rápido tengas el contenido, pero una landing rápida suele estar lista entre 3 y 5 días hábiles. Un sitio multi-sección puede ir entre 5 y 10 días.",
+  },
+  {
+    question: "¿Qué necesito tener listo antes de empezar?",
+    answer:
+      "Idealmente: logo, colores de marca (si tienes), textos base sobre tu negocio y servicios, y algunas fotos. Si no tienes todo, igual podemos partir y yo te guío en qué preparar.",
+  },
+  {
+    question: "¿Incluye dominio y hosting?",
+    answer:
+      "El valor de los planes es solo por el diseño y desarrollo del sitio. El dominio y el hosting los contratas tú, pero te puedo orientar en qué proveedor elegir y cómo hacerlo.",
+  },
+  {
+    question: "¿Puedo pedir cambios después de la entrega?",
+    answer:
+      "Sí. Incluyo una ronda de ajustes razonables después de la entrega inicial. Si necesitas cambios frecuentes, lo ideal es el plan de mantención mensual.",
+  },
+  {
+    question: "¿Puedo pagar en cuotas o con tarjeta?",
+    answer:
+      "Podemos ver opciones según el proyecto. Habitualmente trabajo con pagos por transferencia y, en proyectos más grandes, con un porcentaje inicial y otro a la entrega.",
+  },
+];
+---
+
+<section
+  id="faq"
+  class="border-t border-white/5 bg-[#020617] px-10 py-20 md:px-20 xl:px-72"
+>
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="text-3xl font-bold text-white md:text-4xl">
+      Preguntas frecuentes
+    </h2>
+    <p class="md:text-lg mt-4 text-base text-white/70">
+      Algunas de las dudas más comunes antes de empezar. Si tienes otra
+      pregunta, escríbeme directo por WhatsApp.
+    </p>
+  </div>
+
+  <div class="mx-auto mt-10 max-w-3xl space-y-3">
+    {
+      FAQS.map((item) => (
+        <details class="group rounded-2xl bg-white/5 p-4 text-white shadow-md ring-1 ring-white/5">
+          <summary class="flex cursor-pointer items-center justify-between text-sm font-semibold text-white/90 md:text-base">
+            <span>{item.question}</span>
+            <span class="ml-4 text-xs text-white/60 transition-transform group-open:rotate-90">
+              ➤
+            </span>
+          </summary>
+          <p class="mt-3 text-xs leading-relaxed text-white/80 md:text-sm">
+            {item.answer}
+          </p>
+        </details>
+      ))
+    }
+  </div>
+</section>

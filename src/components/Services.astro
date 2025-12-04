@@ -1,73 +1,102 @@
 ---
 const PLANS = [
   {
-    name: "Landing rápida",
+    name: "Landing Rápida",
     price: "Desde $250.000 CLP",
-    highlight: "Ideal para emprendedores y pymes",
+    highlight:
+      "Para negocios que necesitan presencia online rápida y profesional.",
+    eta: "Entrega estimada: 3 a 5 días hábiles.",
     features: [
-      "1 página clara y enfocada en conversión",
+      "1 página clara enfocada en captar clientes",
       "Diseño moderno y adaptable a móviles",
-      "Formulario de contacto conectado a WhatsApp",
+      "Conexión a WhatsApp o formulario de contacto",
       "Integración con Google Maps (si aplica)",
-      "SEO técnico básico (títulos, descripciones, estructura)",
-      "Entrega en pocos días según complejidad",
     ],
+    cta: "Quiero mi landing",
   },
   {
-    name: "Sitio multi-sección",
+    name: "Sitio Multi-Sección",
     price: "Desde $450.000 CLP",
-    highlight: "Para negocios con más contenido",
+    highlight:
+      "Para negocios con varios servicios o más contenido que mostrar.",
+    eta: "Entrega estimada: 5 a 10 días hábiles.",
     features: [
-      "Hasta 4–5 secciones (inicio, servicios, contacto, etc.)",
-      "Diseño consistente y personalizado",
-      "Formularios y llamadas a la acción",
-      "Optimización básica de velocidad y SEO",
-      "Integración con herramientas como Analytics",
+      "Hasta 4–5 secciones (inicio, servicios, sobre nosotros, contacto, etc.)",
+      "Diseño consistente y alineado a tu marca",
+      "Llamadas a la acción para reservas o formularios",
+      "Optimización para velocidad y SEO",
     ],
+    cta: "Quiero un sitio completo",
   },
   {
-    name: "Mantenimiento mensual",
-    price: "$25.000 – $50.000 CLP / mes",
-    highlight: "Olvídate de lo técnico",
+    name: "Mantenimiento Mensual",
+    price: "$25.000 – $50.000 CLP",
+    highlight: "Para mantener tu sitio funcionando y actualizado.",
+    eta: "Facturación y soporte de forma mensual.",
     features: [
       "Backups y revisión técnica mensual",
       "Actualización de textos e imágenes pequeñas",
       "Monitoreo básico de caídas",
-      "Soporte vía WhatsApp o correo",
+      "Soporte vía WhatsApp o correo para dudas simples",
     ],
+    cta: "Quiero mantención",
   },
 ];
 ---
 
-<section id="servicios" class="px-10 py-12 md:px-20 md:py-16 xl:px-72">
-  <div class="mx-auto max-w-4xl text-center">
-    <h2 class="text-2xl font-semibold text-white md:text-3xl">
-      Servicios pensados para negocios reales
+<section
+  id="servicios"
+  class="border-t border-white/5 bg-[#0b1120] px-10 py-20 md:px-20 xl:px-72"
+>
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="text-3xl font-bold text-white md:text-4xl">
+      Servicios y precios
     </h2>
-    <p class="mt-4 text-sm text-white/70 md:text-base">
-      Planes simples, sin tecnicismos innecesarios. Tú me cuentas de tu negocio
-      y yo me encargo del sitio.
+    <p class="md:text-lg mt-4 text-base text-white/70">
+      Todo está pensado para que no tengas que preocuparte por lo técnico. Tú me
+      cuentas de tu negocio, yo me encargo del sitio.
     </p>
   </div>
 
-  <div class="mt-10 grid gap-6 md:grid-cols-3">
+  <div class="mt-14 grid gap-12 md:grid-cols-3">
     {
       PLANS.map((plan) => (
-        <article class="flex h-full flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-6 text-white shadow-md backdrop-blur-sm">
+        <article class="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-10 shadow-lg backdrop-blur-sm md:p-9">
           <div>
-            <h3 class="text-lg font-semibold">{plan.name}</h3>
-            <p class="mt-1 text-sm font-medium text-[#7477FF]">{plan.price}</p>
-            <p class="mt-2 text-xs text-white/70">{plan.highlight}</p>
+            <h3 class="text-2xl font-semibold text-white">{plan.name}</h3>
 
-            <ul class="mt-4 space-y-2 text-xs text-white/80">
+            <p class="mt-2 text-base font-medium text-[#7477FF]">
+              {plan.price}
+            </p>
+
+            <p class="mt-2 text-sm text-white/80 md:text-base">
+              {plan.highlight}
+            </p>
+
+            <p class="mt-3 text-xs font-medium uppercase tracking-wide text-white/60">
+              ⏱ {plan.eta}
+            </p>
+
+            <ul class="mt-6 space-y-2 text-sm leading-relaxed text-white/80 md:text-base">
               {plan.features.map((item) => (
-                <li class="flex gap-2">
-                  <span class="mt-[6px] inline-block h-1.5 w-1.5 rounded-full bg-[#7477FF]" />
+                <li class="flex gap-3">
+                  <span class="mt-2 inline-block h-1.5 w-1.5 p-1 rounded-full bg-[#7477FF]" />
                   <span>{item}</span>
                 </li>
               ))}
             </ul>
           </div>
+
+          <a
+            href={`https://wa.me/569XXXXXXXX?text=Hola,%20quiero%20saber%20más%20sobre%20${encodeURIComponent(
+              plan.name
+            )}`}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="mt-8 inline-block w-full rounded-xl bg-[#7477FF] px-6 py-3 text-center text-sm font-semibold tracking-wide text-white transition hover:bg-[#8a8dff]"
+          >
+            {plan.cta}
+          </a>
         </article>
       ))
     }

@@ -1,55 +1,48 @@
 ---
 import ProfilePicture from "@assets/img/about-me.webp";
-import { skills } from "@utils/skills";
 import { Image } from "astro:assets";
 ---
 
 <section
   id="sobre-mi"
-  class="flex flex-row items-center justify-between gap-8 px-10 py-20 md:px-20 xl:px-72"
+  class="flex flex-col items-center justify-between gap-10 bg-[#020617] px-10 py-20 md:flex-row md:px-20 xl:px-72"
 >
-  <div class="hidden lg:block">
-    <Image
-      class="aspect-square rounded-xl shadow-md"
-      src={ProfilePicture}
-      alt="Imagen de perfil de Matias, programando en un macbook"
-    />
-  </div>
-  <div>
+  <div class="w-full md:w-1/2">
+    <p class="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">
+      Quién te construirá el sitio
+    </p>
     <h2
-      class="mb-5 w-fit border-b-4 border-solid border-b-[#7477FF] text-2xl font-bold text-white"
+      class="mb-4 mt-2 w-fit border-b-4 border-solid border-b-[#7477FF] text-2xl font-bold text-white"
     >
-      Sobre Mí
+      Sobre mí
     </h2>
-    <p class="text-md my-3 text-pretty text-white">
-      Soy Alexander pero la gente mas cercana me dice Matias (mi segundo
-      nombre), apasionado por crear soluciones tecnológicas innovadoras. Mi
-      carrera ha estado marcada por proyectos desafiantes y gratificantes.
-    </p>
-    <p class="text-md my-3 text-pretty text-white">
-      Uno de mis logros más significativos ha sido desarrollar la comunicación
-      entre la app Coopeuch y Passcoopeuch, facilitando transacciones seguras y
-      eficientes. Este proyecto resalta mi habilidad para integrar sistemas
-      complejos de manera exitosa.
-    </p>
-    <p class="text-md my-3 text-pretty text-white">
-      Poseo una sólida experiencia en el desarrollo de aplicaciones y la
-      integración de sistemas. Si buscas un profesional dedicado y creativo para
-      tu próximo proyecto, ¡no dudes en contactarme! Juntos podemos llevar tus
-      ideas al siguiente nivel.
+    <p class="text-sm leading-relaxed text-white/80 md:text-base">
+      Tengo 8 años desarrollando soluciones web para empresas y emprendimientos.
+      Hoy me enfoco en crear landing pages rápidas y claras, pensadas para
+      negocios que necesitan presencia online sin complicarse.
     </p>
 
-    <section>
-      <h3 class="text-lg mt-5 font-bold text-white">
-        Tecnologías con las que he trabajado
-      </h3>
-      <div class="mt-5 grid grid-cols-7 place-content-center gap-6">
-        {
-          skills.map(({ component: Icon }) => (
-            <Icon className="size-8 brightness-75 transition-all duration-300 hover:scale-105 hover:brightness-100" />
-          ))
-        }
-      </div>
-    </section>
+    <ul
+      class="mt-4 space-y-2 text-sm leading-relaxed text-white/80 md:text-base"
+    >
+      <li>
+        • Experiencia construyendo sitios para distintos tipos de negocios.
+      </li>
+      <li>
+        • Enfoque en claridad, velocidad y conversión, no solo en el código.
+      </li>
+      <li>
+        • Proceso simple: me cuentas tu idea y en pocos días tienes tu sitio
+        funcionando.
+      </li>
+    </ul>
+  </div>
+
+  <div class="w-full max-w-md md:w-1/2">
+    <Image
+      class="aspect-square w-full rounded-xl object-cover shadow-md"
+      src={ProfilePicture}
+      alt="Imagen de perfil de Matias, programando en un MacBook"
+    />
   </div>
 </section>

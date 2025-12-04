@@ -1,0 +1,67 @@
+---
+const STEPS = [
+  {
+    number: "01",
+    title: "Me cuentas tu idea",
+    description:
+      "Hablamos por WhatsApp o videollamada corta. Me explicas de qué trata tu negocio, qué ofreces y qué esperas del sitio.",
+  },
+  {
+    number: "02",
+    title: "Definimos estructura y contenido",
+    description:
+      "Te propongo una estructura simple (secciones, bloques, llamadas a la acción) y te indico qué textos e imágenes necesito.",
+  },
+  {
+    number: "03",
+    title: "Diseño y desarrollo",
+    description:
+      "Con esa información, diseño y desarrollo la landing o sitio. Te voy mostrando avances para que no sea una caja negra.",
+  },
+  {
+    number: "04",
+    title: "Revisión y ajustes finales",
+    description:
+      "Revisamos juntos el sitio, hacemos ajustes razonables en textos y detalles visuales hasta que quede listo para publicar.",
+  },
+  {
+    number: "05",
+    title: "Publicación y soporte inicial",
+    description:
+      "Publicamos el sitio en tu dominio. Te explico cómo usar lo básico y quedo disponible para soporte inicial o mantención mensual.",
+  },
+];
+---
+
+<section
+  id="proceso"
+  class="border-t border-white/5 bg-[#020617] px-10 py-20 md:px-20 xl:px-72"
+>
+  <div class="mx-auto max-w-3xl text-center">
+    <h2 class="text-3xl font-bold text-white md:text-4xl">Cómo trabajo</h2>
+    <p class="md:text-lg mt-4 text-base text-white/70">
+      No necesitas entender de tecnología. El proceso está pensado para que sea
+      claro, transparente y sin vueltas.
+    </p>
+  </div>
+
+  <div class="mt-12 grid gap-6 md:grid-cols-2">
+    {
+      STEPS.map((step) => (
+        <article class="flex gap-4 rounded-2xl bg-white/5 p-5 shadow-md ring-1 ring-white/5">
+          <div class="flex h-12 w-12 p-4 items-center justify-center rounded-full bg-[#7477FF] text-xs font-bold text-white">
+            {step.number}
+          </div>
+          <div>
+            <h3 class="text-sm font-semibold text-white md:text-xl">
+              {step.title}
+            </h3>
+            <p class="mt-2 text-xs leading-relaxed text-white/75 md:text-sm">
+              {step.description}
+            </p>
+          </div>
+        </article>
+      ))
+    }
+  </div>
+</section>

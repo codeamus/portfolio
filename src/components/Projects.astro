@@ -7,22 +7,22 @@ const projects = await getCollection("projects");
 
 <section
   id="proyectos"
-  class="flex flex-col justify-between gap-8 bg-[#1E293B] px-10 py-20 md:px-20 xl:px-72"
+  class="flex flex-col justify-between gap-10 bg-[#111827] px-10 py-24 md:px-20 xl:px-72"
 >
+  <!-- ENCABEZADO -->
   <header class="max-w-3xl">
-    <h2
-      class="mb-2 w-fit border-b-4 border-solid text-2xl font-bold text-white"
-    >
+    <h2 class="text-4xl font-bold tracking-tight text-white">
       Proyectos reales
     </h2>
-    <p class="text-sm text-white/70">
-      Algunos sitios y campañas en los que he trabajado. Todos con el mismo
-      objetivo: ayudar a negocios reales a tener una presencia online clara,
-      moderna y lista para convertir.
+
+    <p class="mt-4 text-base leading-relaxed text-white/70">
+      Sitios reales que he construido para negocios reales. Todos con el mismo
+      enfoque: claridad, velocidad y resultados.
     </p>
   </header>
 
-  <div class="mt-6 grid grid-cols-1 gap-10 lg:grid-cols-2">
+  <!-- LISTA DE PROYECTOS -->
+  <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
     {
       projects.map((project) => {
         const { data, slug } = project;
@@ -31,19 +31,21 @@ const projects = await getCollection("projects");
 
         const projectUrl = `/projects/${slug}`;
         const ariaTitle = `Visitar el sitio web de ${title}`;
-        const ariaGithub = `Visitar el repositorio GitHub de ${title}`;
 
         return (
-          <article class="flex flex-col justify-between rounded-2xl bg-[#020617]/40 p-5 shadow-md ring-1 ring-white/5">
+          <article class="flex flex-col justify-between rounded-2xl bg-white/5 p-6 shadow-xl ring-1 ring-white/10 transition-all hover:ring-white/20">
             <div>
               <h3
-                class="group relative mb-2 w-fit text-xl font-bold text-[#7477FF]"
+                class="group relative mb-3 w-fit text-3xl font-semibold text-[#7477FF]"
                 transition:name={`name-${title}`}
               >
                 {title}
-                <span class="absolute -bottom-1 left-0 h-[2px] w-7 bg-[#7477FF]/80 transition-all duration-300 group-hover:w-full group-hover:bg-white" />
+                <span class="absolute -bottom-1 left-0 h-[2px] w-10 bg-[#7477FF]/80 transition-all duration-300 group-hover:w-full group-hover:bg-white" />
               </h3>
-              <p class="text-sm text-white/80">{description}</p>
+
+              <p class="text-base leading-relaxed text-white/80">
+                {description}
+              </p>
 
               <a href={projectUrl}>
                 <picture>
@@ -52,22 +54,22 @@ const projects = await getCollection("projects");
                     transition:name={`img-${slug}`}
                     src={image_mobile}
                     alt={`Vista del sitio web ${title}`}
-                    class="mt-5 w-full rounded-lg brightness-50 transition-all duration-300 hover:brightness-100"
+                    class="mt-6 w-full rounded-lg shadow-md brightness-75 transition-all duration-300 hover:brightness-100"
                     loading="lazy"
                   />
                 </picture>
               </a>
             </div>
 
-            <footer class="mt-5 flex flex-col gap-3">
+            <footer class="mt-6 flex flex-col gap-4">
               <a href={projectUrl}>
-                <p class="group relative w-fit text-sm font-semibold text-[#7477FF] transition-colors duration-300 hover:text-white">
+                <p class="group relative w-fit text-sm font-semibold tracking-wide text-[#7477FF] transition-colors duration-300 hover:text-white">
                   Ver más detalles de este proyecto
                   <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
                 </p>
               </a>
 
-              <div class="flex items-center gap-4 text-xs text-white/70">
+              <div class="flex items-center gap-3 text-sm text-white/70">
                 {website && (
                   <a
                     class="flex items-center gap-2 hover:text-white/100"

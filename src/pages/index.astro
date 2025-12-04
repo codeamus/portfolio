@@ -2,25 +2,26 @@
 import Navbar from "@components/Navbar.astro";
 import Layout from "@layouts/Layout.astro";
 import Principal from "@components/Principal.astro";
+import Services from "@components/Services.astro";
 import Projects from "@components/Projects.astro";
 import About from "@components/About.astro";
 import Footer from "@components/Footer.astro";
-import Experience from "@components/Experience.astro";
-import Services from "@components/Services.astro";
+import HowWork from "@components/HowWork.astro";
+import Faq from "@components/Faq.astro";
 ---
 
 <Layout
   title="Landing pages rápidas para negocios | Codeamus"
-  description="Diseño y desarrollo landing pages modernas para negocios en Chile. Sitios rápidos, claros y conectados a WhatsApp, listos en pocos días. Ideal para pymes, profesionales y emprendimientos que necesitan presencia web sin complicarse."
+  description="Diseño y desarrollo landing pages y sitios simples para negocios en Chile. Sitios rápidos, claros y conectados a WhatsApp, listos en pocos días. Ideal para pymes, emprendimientos y profesionales que necesitan presencia online sin complicarse."
 >
   <Navbar />
   <main>
     <Principal />
     <Services />
     <Projects />
-    <!-- <Projects />
+    <HowWork />
+    <Faq />
     <About />
-    <Experience /> -->
   </main>
   <Footer />
 </Layout>
