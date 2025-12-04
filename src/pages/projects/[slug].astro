@@ -3,6 +3,7 @@ import IconWebSite from "@assets/icons/world.astro";
 import Footer from "@components/Footer.astro";
 import Navbar from "@components/Navbar.astro";
 import Layout from "@layouts/Layout.astro";
+import { WHATSAPP_URL } from "@utils/const";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -125,9 +126,7 @@ export const prerender = true;
         con el mismo nivel de cuidado y detalle aplicado en este proyecto.
       </p>
       <a
-        href={`https://wa.me/569XXXXXXXX?text=Hola,%20vi%20tu%20proyecto%20${encodeURIComponent(
-          title
-        )}%20y%20quiero%20algo%20similar%20para%20mi%20negocio`}
+        href={WHATSAPP_URL}
         class="mt-4 inline-block rounded-xl bg-[#7477FF] px-6 py-3 text-base font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#8a8dff]"
         target="_blank"
         rel="noopener noreferrer"

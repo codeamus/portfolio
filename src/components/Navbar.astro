@@ -1,6 +1,7 @@
 ---
 import IconLinkedin from "@assets/icons/linkedin-white.astro";
 import Logo from "@assets/img/logos/logo.webp";
+import { WHATSAPP_URL } from "@utils/const";
 
 const SOCIAL_LINKS = [
   {
@@ -9,9 +10,6 @@ const SOCIAL_LINKS = [
     label: "Ver perfil de LinkedIn",
   },
 ];
-
-const WHATSAPP_URL =
-  "https://wa.me/569XXXXXXXX?text=Hola%20Matías,%20quiero%20una%20landing%20page%20para%20mi%20negocio.";
 ---
 
 <nav
@@ -35,9 +33,7 @@ const WHATSAPP_URL =
       class="hidden items-center gap-4 text-xs font-medium text-white md:flex"
     >
       <li>
-        <a href="/" class="transition-colors hover:text-[#7477FF]">
-          Inicio
-        </a>
+        <a href="/" class="transition-colors hover:text-[#7477FF]"> Inicio</a>
       </li>
       <li>
         <a href="#servicios" class="transition-colors hover:text-[#7477FF]">

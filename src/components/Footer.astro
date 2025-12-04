@@ -2,6 +2,7 @@
 import IconLinkedin from "@assets/icons/linkedin.astro";
 import IconGithub from "@assets/icons/github.astro";
 import IconGmail from "@assets/icons/gmail.astro";
+import { WHATSAPP_URL } from "@utils/const";
 ---
 
 <footer
@@ -19,7 +20,7 @@ import IconGmail from "@assets/icons/gmail.astro";
         para tu negocio. Te explico el proceso, tiempos y próximos pasos.
       </p>
       <a
-        href="https://wa.me/569XXXXXXXX?text=Hola,%20quiero%20cotizar%20un%20sitio%20web"
+        href={WHATSAPP_URL}
         target="_blank"
         rel="noopener noreferrer"
         class="mt-4 inline-block rounded-lg bg-[#7477FF] px-6 py-3 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-[#8a8dff]"

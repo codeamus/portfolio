@@ -1,4 +1,6 @@
 ---
+import { WHATSAPP_URL } from "@utils/const";
+
 const PLANS = [
   {
     name: "Landing Rápida",
@@ -88,9 +90,7 @@ const PLANS = [
           </div>
 
           <a
-            href={`https://wa.me/569XXXXXXXX?text=Hola,%20quiero%20saber%20más%20sobre%20${encodeURIComponent(
-              plan.name
-            )}`}
+            href={WHATSAPP_URL}
             target="_blank"
             rel="noopener noreferrer"
             class="mt-8 inline-block w-full rounded-xl bg-[#7477FF] px-6 py-3 text-center text-sm font-semibold tracking-wide text-white transition hover:bg-[#8a8dff]"

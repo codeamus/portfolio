@@ -1,5 +1,6 @@
 ---
 import ProfilePicture from "@assets/img/about-me.webp";
+import { WHATSAPP_URL } from "@utils/const";
 ---
 
 <section
@@ -40,7 +41,7 @@ import ProfilePicture from "@assets/img/about-me.webp";
       class="mt-8 flex flex-col items-center gap-3 text-sm lg:flex-row lg:justify-start"
     >
       <a
-        href="https://wa.me/569XXXXXXXX?text=Hola,%20quiero%20una%20landing%20para%20mi%20negocio"
+        href={WHATSAPP_URL}
         class="w-full rounded-xl bg-[#7477FF] px-6 py-3 text-center font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#8a8dff] md:w-auto"
         target="_blank"
         rel="noopener noreferrer"
