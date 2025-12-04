@@ -25,9 +25,15 @@ const projects = await getCollection("projects");
   <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
     {
       projects.map((project) => {
-        const { data, slug } = project;
-        const { title, description, image_desktop, image_mobile, website } =
-          data;
+        const { data } = project;
+        const {
+          title,
+          description,
+          image_desktop,
+          image_mobile,
+          website,
+          slug,
+        } = data;
 
         const projectUrl = `/projects/${slug}`;
         const ariaTitle = `Visitar el sitio web de ${title}`;
