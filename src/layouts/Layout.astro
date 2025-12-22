@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
@@ -34,6 +35,7 @@ const { title, description } = Astro.props;
   </head>
   <body>
     <slot />
+    <Analytics />
     <style is:global>
       html {
         font-family: "Poppins", system-ui, sans-serif;
