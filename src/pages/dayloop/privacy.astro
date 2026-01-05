@@ -1,0 +1,194 @@
+---
+// src/pages/dayloop/privacy.astro
+export const prerender = true;
+
+const TITLE = "Dayloop — Privacy Policy";
+const LAST_UPDATED = "January 5, 2026";
+
+const CONTACT_EMAIL = "contact@codeamus.dev";
+const APP_NAME = "Dayloop";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>{TITLE}</title>
+    <meta
+      name="description"
+      content="Privacy Policy for Dayloop. Dayloop does not collect, store, or share personal data. Habits are stored locally on your device."
+    />
+    <meta name="robots" content="index,follow" />
+    <link rel="canonical" href="https://codeamus.dev/dayloop/privacy" />
+
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b0f14;
+        --card: #111827;
+        --text: #e5e7eb;
+        --muted: #9ca3af;
+        --link: #93c5fd;
+        --border: rgba(255, 255, 255, 0.08);
+        --max: 920px;
+      }
+      @media (prefers-color-scheme: light) {
+        :root {
+          --bg: #ffffff;
+          --card: #f8fafc;
+          --text: #0f172a;
+          --muted: #475569;
+          --link: #2563eb;
+          --border: rgba(15, 23, 42, 0.12);
+        }
+      }
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        font-family:
+          ui-sans-serif,
+          system-ui,
+          -apple-system,
+          Segoe UI,
+          Roboto,
+          Helvetica,
+          Arial,
+          "Apple Color Emoji",
+          "Segoe UI Emoji";
+        background: var(--bg);
+        color: var(--text);
+        line-height: 1.6;
+      }
+      header {
+        border-bottom: 1px solid var(--border);
+        background: linear-gradient(
+          180deg,
+          rgba(147, 197, 253, 0.1),
+          transparent 60%
+        );
+      }
+      .wrap {
+        max-width: var(--max);
+        margin: 0 auto;
+        padding: 28px 18px;
+      }
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 16px;
+        padding: 22px;
+        margin-top: 18px;
+      }
+      h1 {
+        margin: 0 0 6px 0;
+        font-size: 28px;
+        letter-spacing: -0.02em;
+      }
+      .meta {
+        margin: 0;
+        color: var(--muted);
+        font-size: 14px;
+      }
+      h2 {
+        margin: 18px 0 8px;
+        font-size: 18px;
+        letter-spacing: -0.01em;
+      }
+      p,
+      li {
+        color: var(--text);
+      }
+      ul {
+        margin: 8px 0 0 18px;
+      }
+      a {
+        color: var(--link);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      .footer {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 18px;
+      }
+      code {
+        padding: 2px 6px;
+        border-radius: 8px;
+        border: 1px solid var(--border);
+        background: rgba(255, 255, 255, 0.05);
+      }
+    </style>
+  </head>
+
+  <body>
+    <header>
+      <div class="wrap">
+        <h1>{APP_NAME} — Privacy Policy</h1>
+        <p class="meta">Last updated: {LAST_UPDATED}</p>
+      </div>
+    </header>
+
+    <main class="wrap">
+      <section class="card" aria-label="Privacy Policy">
+        <p>
+          {APP_NAME} does not collect, store, or share personal data.
+        </p>
+
+        <h2>Data collection</h2>
+        <p>
+          We do not collect any personal information, usage analytics,
+          advertising identifiers, or tracking data.
+        </p>
+
+        <h2>Local storage</h2>
+        <p>
+          Your habits and related information are stored locally on your device. {
+            APP_NAME
+          } does not transmit your habit data to any server.
+        </p>
+
+        <h2>Notifications</h2>
+        <p>
+          {APP_NAME} uses notifications only to remind you about your habits. Notifications
+          are generated on-device and are not used for tracking or advertising.
+        </p>
+
+        <h2>Third-party services</h2>
+        <p>
+          {APP_NAME} does not integrate third-party analytics, advertising SDKs, or
+          trackers.
+        </p>
+
+        <h2>Children’s privacy</h2>
+        <p>
+          {APP_NAME} is not directed to children under 13 and does not knowingly collect
+          personal information from children.
+        </p>
+
+        <h2>Changes to this policy</h2>
+        <p>
+          If the app’s data practices change (for example, adding accounts,
+          cloud sync, or subscriptions), this policy will be updated
+          accordingly.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          If you have any questions, contact us at
+          <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a>.
+        </p>
+
+        <p class="footer">
+          Tip: In App Store Connect and Google Play Console, use this page URL
+          as your
+          <code>Privacy Policy URL</code>.
+        </p>
+      </section>
+    </main>
+  </body>
+</html>
