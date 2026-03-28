@@ -36,6 +36,10 @@ import Analytics from "@vercel/analytics/astro";
   <body>
     <slot />
     <Analytics />
+
+    <!-- Import Animations CSS -->
+    <link rel="stylesheet" href="/src/styles/animations.css" />
+
     <style is:global>
       html {
         font-family: "Poppins", system-ui, sans-serif;
