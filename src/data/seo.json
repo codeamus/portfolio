@@ -1,0 +1,52 @@
+{
+  "global": {
+    "siteName": "CODEAMUS",
+    "siteUrl": "https://codeamus.dev",
+    "description": "Desarrollo web y aplicaciones móviles profesionales en Astro, React y React Native. Freelancer en Santiago, Chile.",
+    "author": "Matías",
+    "email": "matias04041994@gmail.com",
+    "locale": "es-CL"
+  },
+  "pages": {
+    "home": {
+      "title": "Desarrollo Web y Apps Móviles | CODEAMUS",
+      "description": "Agencia especializada en desarrollo web con Astro y aplicaciones móviles iOS/Android. Proyectos profesionales en Santiago, Chile.",
+      "keywords": "desarrollo web astro, apps móviles, react native, freelancer santiago"
+    },
+    "servicios": {
+      "title": "Servicios - Desarrollo Web y Apps | CODEAMUS",
+      "description": "Landing pages, sitios web profesionales y aplicaciones móviles personalizadas. Cotizaciones sin compromiso.",
+      "keywords": "servicios desarrollo web, apps móviles chile, landing pages"
+    },
+    "portfolio": {
+      "title": "Portfolio - Proyectos Realizados | CODEAMUS",
+      "description": "Casos de éxito y proyectos realizados. Ejemplos de trabajo en desarrollo web y aplicaciones.",
+      "keywords": "portfolio desarrollador, proyectos web, aplicaciones móviles"
+    },
+    "blog": {
+      "title": "Blog - Artículos sobre Desarrollo | CODEAMUS",
+      "description": "Artículos y guías sobre desarrollo web, SEO técnico, mejores prácticas y tecnologías modernas.",
+      "keywords": "blog desarrollo, guía astro, seo técnico, react"
+    }
+  },
+  "keywords": {
+    "tier1": [
+      "desarrollo web astro",
+      "desarrollo app móvil",
+      "agencia web y app",
+      "desarrollo web profesional"
+    ],
+    "tier2": [
+      "desarrollo web santiago",
+      "agencia apps móviles chile",
+      "crear app móvil santiago",
+      "freelancer desarrollo web"
+    ],
+    "tier3": [
+      "cómo crear una landing page que convierte",
+      "desarrollo app ios android",
+      "agencia web especializada en astro",
+      "casos de éxito desarrollo apps"
+    ]
+  }
+}
