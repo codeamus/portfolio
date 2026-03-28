@@ -1,4 +1,6 @@
 ---
+// Navbar - Taste-Skill Premium Edition
+// Motion Intensity: HIGH
 import IconLinkedin from "@assets/icons/linkedin-white.astro";
 import Logo from "@assets/img/logos/logo.webp";
 import { WHATSAPP_URL } from "@utils/const";
@@ -10,58 +12,68 @@ const SOCIAL_LINKS = [
     label: "Ver perfil de LinkedIn",
   },
 ];
+
+const NAV_LINKS = [
+  { label: "Inicio", href: "/" },
+  { label: "Servicios", href: "#servicios" },
+  { label: "Proyectos", href: "#proyectos" },
+  { label: "Blog", href: "/blog" },
+  { label: "Contacto", href: "#contacto" },
+];
 ---
 
 <nav
-  class="sticky top-0 z-20 flex items-center justify-between bg-[#050816]/80 px-6 py-4 backdrop-blur-sm md:px-12 xl:px-72"
+  class="sticky top-0 z-50 flex items-center justify-between border-b border-white/10 bg-[#0f172a]/95 px-6 py-4 backdrop-blur-md transition-all duration-300 md:px-12 xl:px-72"
 >
+  <!-- Logo con hover effect -->
   <a
-    class="flex items-center gap-2"
+    class="group flex items-center gap-2 hover-elevate"
     href="/"
     aria-label="Volver al inicio de Codeamus"
   >
     <img
-      class="w-full max-w-[120px] transition-transform duration-300 hover:scale-105"
+      class="w-full max-w-[120px] transition-all duration-300 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(91,91,255,0.3)]"
       src={Logo.src}
       alt="Logo de Codeamus"
       loading="lazy"
     />
   </a>
 
-  <div class="flex items-center gap-6">
-    <ul
-      class="hidden items-center gap-4 text-xs font-medium text-white md:flex"
-    >
-      <li>
-        <a href="/" class="transition-colors hover:text-[#7477FF]"> Inicio</a>
-      </li>
-      <li>
-        <a href="#servicios" class="transition-colors hover:text-[#7477FF]">
-          Servicios
+  <!-- Centro: Navigation Links -->
+  <div class="hidden items-center gap-1 md:flex">
+    {
+      NAV_LINKS.map(({ label, href }) => (
+        <a
+          href={href}
+          class="relative px-4 py-2 text-sm font-medium text-white/80 transition-colors duration-300 hover:text-white group"
+        >
+          {label}
+          {/* Underline animated */}
+          <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] transition-all duration-300 group-hover:w-full" />
         </a>
-      </li>
-      <li>
-        <a href="#proyectos" class="transition-colors hover:text-[#7477FF]">
-          Proyectos
-        </a>
-      </li>
-    </ul>
+      ))
+    }
+  </div>
 
+  <!-- Derecha: CTA + Social -->
+  <div class="flex items-center gap-3 md:gap-6">
+    <!-- CTA Button -->
     <a
       href={WHATSAPP_URL}
       target="_blank"
       rel="noopener noreferrer"
-      class="hidden items-center rounded-full bg-[#7477FF] px-4 py-2 text-xs font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#8a8dff] sm:inline-flex"
+      class="hidden items-center gap-2 rounded-lg bg-gradient-to-r from-[#5b5bff] to-[#6366f1] px-6 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-glow-blue transition-all duration-300 hover:shadow-[0_0_30px_rgba(91,91,255,0.4)] hover:scale-105 sm:inline-flex btn-ripple"
     >
-      Hablemos de tu sitio
+      <span>💬 Cotizar</span>
     </a>
 
+    <!-- Social Links -->
     <ul class="flex items-center gap-2">
       {
         SOCIAL_LINKS.map(({ Icon, url, label }) => (
           <li>
             <a
-              class="flex items-center rounded-md p-2 text-xs text-white transition-colors duration-300 hover:bg-[#7477FF]"
+              class="flex items-center justify-center rounded-full p-2 text-white/70 transition-all duration-300 hover:bg-[#5b5bff]/20 hover:text-[#5b5bff]"
               rel="noopener noreferrer"
               aria-label={label}
               href={url}
@@ -73,5 +85,70 @@ const SOCIAL_LINKS = [
         ))
       }
     </ul>
+
+    <!-- Mobile Menu Toggle (future) -->
+    <button
+      class="md:hidden flex items-center justify-center rounded-lg p-2 text-white/70 hover:bg-[#5b5bff]/20 transition-colors"
+      aria-label="Toggle menu"
+      id="mobile-menu-toggle"
+    >
+      <svg
+        class="h-6 w-6"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M4 6h16M4 12h16M4 18h16"
+        ></path>
+      </svg>
+    </button>
   </div>
 </nav>
+
+<style>
+  /* Hover elevation effect */
+  .hover-elevate {
+    transition: all var(--animation-duration-fast) var(--animation-easing-smooth);
+  }
+
+  .hover-elevate:hover {
+    transform: translateY(-2px);
+  }
+
+  /* Button ripple effect */
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+</style>
+
+<script>
+  // Mobile menu toggle (placeholder)
+  const toggle = document.getElementById('mobile-menu-toggle');
+  toggle?.addEventListener('click', () => {
+    console.log('Mobile menu toggle clicked');
+    // Future: implement mobile menu
+  });
+</script>

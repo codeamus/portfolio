@@ -1,0 +1,47 @@
+[
+  {
+    id: 1,
+    name: "Juan García",
+    role: "Propietario, Panadería García",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+    content: "Matías nos hizo un sitio web increíble en menos de una semana. Nuestras ventas online se triplicaron. Altamente recomendado.",
+    rating: 5,
+    location: "Santiago, Chile"
+  },
+  {
+    id: 2,
+    name: "María López",
+    role: "CEO, StartUp Tech",
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+    content: "El desarrollo de nuestra app móvil fue profesional y rápido. Matías entiende lo que necesitan los startups.",
+    rating: 5,
+    location: "Santiago, Chile"
+  },
+  {
+    id: 3,
+    name: "Carlos Rodríguez",
+    role: "Freelancer, Consultoría",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+    content: "Mi portafolio online se ve increíble. Las animaciones y diseño son de clase mundial. Definitivamente volvería a trabajar con él.",
+    rating: 5,
+    location: "Santiago, Chile"
+  },
+  {
+    id: 4,
+    name: "Andrea Martínez",
+    role: "Directora, Agencia Digital",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop",
+    content: "Excelente atención al cliente, código limpio y entregas puntuales. Un profesional que se nota la calidad en su trabajo.",
+    rating: 5,
+    location: "Santiago, Chile"
+  },
+  {
+    id: 5,
+    name: "Roberto Silva",
+    role: "Emprendedor, E-commerce",
+    image: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop",
+    content: "Increíble transformación en mi negocio. La landing page que hizo Matías convierte como ninguna. Vale cada peso.",
+    rating: 5,
+    location: "Santiago, Chile"
+  }
+]

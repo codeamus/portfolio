@@ -1,104 +1,163 @@
 ---
+// Services Component - Taste-Skill Premium Edition
+// Motion Intensity: HIGH
+// Visual Density: LOW
 import { WHATSAPP_URL } from "@utils/const";
 
-const PLANS = [
+const SERVICES = [
   {
-    name: "Landing Rápida",
-    price: "Desde $250.000 CLP",
-    highlight:
-      "Para negocios que necesitan presencia online rápida y profesional.",
-    eta: "Entrega estimada: 3 a 5 días hábiles.",
+    icon: "🌐",
+    name: "Landing Pages",
+    description: "Páginas de conversión optimizadas para captar clientes",
     features: [
-      "1 página clara enfocada en captar clientes",
-      "Diseño moderno y adaptable a móviles",
-      "Conexión a WhatsApp o formulario de contacto",
-      "Integración con Google Maps (si aplica)",
+      "Diseño moderno y responsivo",
+      "Optimizado para conversiones",
+      "Conectado a WhatsApp/Formulario",
+      "SEO básico incluido",
     ],
-    cta: "Quiero mi landing",
+    deliveryTime: "3-5 días",
+    cta: "Empezar",
+    highlight: true,
   },
   {
-    name: "Sitio Multi-Sección",
-    price: "Desde $450.000 CLP",
-    highlight:
-      "Para negocios con varios servicios o más contenido que mostrar.",
-    eta: "Entrega estimada: 5 a 10 días hábiles.",
+    icon: "🏢",
+    name: "Sitios Web Profesionales",
+    description: "Webs completos con múltiples secciones y funcionalidades",
     features: [
-      "Hasta 4–5 secciones (inicio, servicios, sobre nosotros, contacto, etc.)",
-      "Diseño consistente y alineado a tu marca",
-      "Llamadas a la acción para reservas o formularios",
-      "Optimización para velocidad y SEO",
+      "4-5 secciones personalizadas",
+      "Diseño consistente y profesional",
+      "Sistema de contacto avanzado",
+      "Optimización SEO técnico",
     ],
-    cta: "Quiero un sitio completo",
+    deliveryTime: "5-10 días",
+    cta: "Cotizar",
   },
   {
-    name: "Mantenimiento Mensual",
-    price: "$25.000 – $50.000 CLP",
-    highlight: "Para mantener tu sitio funcionando y actualizado.",
-    eta: "Facturación y soporte de forma mensual.",
+    icon: "📱",
+    name: "Apps Móviles",
+    description: "Aplicaciones iOS y Android nativas con React Native",
     features: [
-      "Backups y revisión técnica mensual",
-      "Actualización de textos e imágenes pequeñas",
-      "Monitoreo básico de caídas",
-      "Soporte vía WhatsApp o correo para dudas simples",
+      "Apps iOS + Android",
+      "Interfaz moderna y fluida",
+      "Integración con APIs",
+      "Publicación en App Store",
     ],
-    cta: "Quiero mantención",
+    deliveryTime: "2-4 semanas",
+    cta: "Consultar",
   },
 ];
 ---
 
 <section
   id="servicios"
-  class="border-t border-white/5 bg-[#0b1120] px-10 py-20 md:px-20 xl:px-72"
+  class="relative border-t border-white/10 bg-gradient-to-b from-[#0f172a] to-[#0a0f1f] px-10 py-24 md:px-20 xl:px-72 overflow-hidden"
 >
-  <div class="mx-auto max-w-3xl text-center">
-    <h2 class="text-3xl font-bold text-white md:text-4xl">
-      Servicios y precios
-    </h2>
-    <p class="md:text-lg mt-4 text-base text-white/70">
-      Todo está pensado para que no tengas que preocuparte por lo técnico. Tú me
-      cuentas de tu negocio, yo me encargo del sitio.
-    </p>
-  </div>
+  <!-- Background Glow -->
+  <div class="absolute -left-40 top-40 h-80 w-80 rounded-full bg-[#5b5bff]/5 blur-3xl" />
+  <div class="absolute -right-40 bottom-20 h-80 w-80 rounded-full bg-[#6366f1]/5 blur-3xl" />
 
-  <div class="mt-14 grid gap-12 md:grid-cols-3">
-    {
-      PLANS.map((plan) => (
-        <article class="flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 p-10 shadow-lg backdrop-blur-sm md:p-9">
-          <div>
-            <h3 class="text-2xl font-semibold text-white">{plan.name}</h3>
+  <div class="relative z-10">
+    <!-- Header -->
+    <div class="mx-auto max-w-3xl text-center mb-20">
+      <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#5b5bff]">
+        Soluciones para cada necesidad
+      </p>
+      <h2 class="mt-4 text-4xl md:text-5xl font-bold text-white">
+        Servicios Especializados
+      </h2>
+      <p class="mt-6 text-base md:text-lg text-white/70 leading-relaxed">
+        Desde landing pages rápidas hasta aplicaciones móviles complejas. Todo
+        con enfoque en resultados y velocidad.
+      </p>
+    </div>
 
-            <p class="mt-2 text-base font-medium text-[#7477FF]">
-              {plan.price}
-            </p>
-
-            <p class="mt-2 text-sm text-white/80 md:text-base">
-              {plan.highlight}
-            </p>
-
-            <p class="mt-3 text-xs font-medium uppercase tracking-wide text-white/60">
-              ⏱ {plan.eta}
-            </p>
-
-            <ul class="mt-6 space-y-2 text-sm leading-relaxed text-white/80 md:text-base">
-              {plan.features.map((item) => (
-                <li class="flex gap-3">
-                  <span class="mt-2 inline-block h-1.5 w-1.5 p-1 rounded-full bg-[#7477FF]" />
-                  <span>{item}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <a
-            href={WHATSAPP_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            class="mt-8 inline-block w-full rounded-xl bg-[#7477FF] px-6 py-3 text-center text-sm font-semibold tracking-wide text-white transition hover:bg-[#8a8dff]"
+    <!-- Services Grid -->
+    <div class="grid gap-8 md:grid-cols-3 lg:gap-10">
+      {
+        SERVICES.map((service, index) => (
+          <article
+            class={`group relative rounded-2xl border transition-all duration-500 ${
+              service.highlight
+                ? 'border-[#5b5bff]/50 bg-gradient-to-br from-[#5b5bff]/10 to-transparent shadow-[0_0_20px_rgba(91,91,255,0.2)]'
+                : 'border-white/10 bg-white/5'
+            } p-8 hover:border-[#5b5bff]/60 hover:shadow-[0_8_32px_rgba(91,91,255,0.15)] card-premium`
+            style={{ '--stagger-index': index } as any}
           >
-            {plan.cta}
-          </a>
-        </article>
-      ))
-    }
+            {service.highlight && (
+              <div class="absolute top-0 right-0 bg-gradient-to-br from-[#5b5bff] to-[#6366f1] px-4 py-1 rounded-bl-lg text-xs font-bold text-white">
+                ⭐ Popular
+              </div>
+            )}
+
+            <div>
+              {/* Icon */}
+              <div class="text-5xl mb-4 group-hover:scale-110 transition-transform duration-300">
+                {service.icon}
+              </div>
+
+              {/* Title */}
+              <h3 class="text-2xl font-bold text-white mb-3">
+                {service.name}
+              </h3>
+
+              {/* Description */}
+              <p class="text-white/70 mb-6 text-sm leading-relaxed">
+                {service.description}
+              </p>
+
+              {/* Features */}
+              <ul class="space-y-3 mb-8">
+                {service.features.map((feature) => (
+                  <li class="flex gap-3 items-start">
+                    <span class="text-[#5b5bff] font-bold mt-1">✓</span>
+                    <span class="text-white/80 text-sm">{feature}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Delivery Time */}
+              <div class="inline-block bg-[#5b5bff]/10 rounded-lg px-4 py-2 text-xs font-medium text-[#5b5bff] mb-6 border border-[#5b5bff]/30">
+                ⏱ Entrega: {service.deliveryTime}
+              </div>
+            </div>
+
+            {/* CTA Button */}
+            <a
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="block w-full mt-8 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold py-3 px-6 rounded-lg text-center transition-all duration-300 hover:shadow-[0_0_20px_rgba(91,91,255,0.4)] hover:scale-105 btn-ripple"
+            >
+              {service.cta}
+            </a>
+          </article>
+        ))
+      }
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-20 text-center">
+      <p class="text-white/60 mb-6">
+        ¿No sabes cuál es el que necesitas? Hablemos de tu proyecto.
+      </p>
+      <a
+        href={WHATSAPP_URL}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-8 py-3 rounded-lg border-2 border-white/20 text-white font-semibold hover:border-[#5b5bff] hover:bg-[#5b5bff]/10 transition-all duration-300"
+      >
+        📞 Solicitar Consulta
+      </a>
+    </div>
   </div>
 </section>
+
+<style>
+  .card-premium {
+    transition: all var(--animation-duration-base) var(--animation-easing-smooth);
+  }
+
+  .card-premium:hover {
+    transform: translateY(-8px);
+  }
+</style>

@@ -1,0 +1,217 @@
+---
+// Testimonials Carousel - Taste-Skill Premium Edition
+// Motion Intensity: HIGH
+import testimonials from "@data/testimonials.json";
+---
+
+<section
+  class="relative border-t border-white/10 bg-gradient-to-b from-[#0a0f1f] to-[#0f172a] px-10 py-24 md:px-20 xl:px-72 overflow-hidden"
+  id="testimonios"
+>
+  <!-- Background Glow -->
+  <div class="absolute -right-40 top-0 h-96 w-96 rounded-full bg-[#5b5bff]/5 blur-3xl" />
+
+  <div class="relative z-10">
+    <!-- Header -->
+    <div class="text-center mb-16">
+      <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#5b5bff] mb-4">
+        Lo que dicen mis clientes
+      </p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Testimonios y Resultados
+      </h2>
+      <p class="text-white/70 max-w-2xl mx-auto">
+        Empresas y emprendedores que han transformado su presencia online con
+        nuestros servicios.
+      </p>
+    </div>
+
+    <!-- Testimonials Carousel -->
+    <div
+      class="relative mx-auto max-w-4xl"
+      id="testimonial-carousel"
+    >
+      <!-- Slides Container -->
+      <div
+        class="relative overflow-hidden"
+        id="carousel-container"
+      >
+        {
+          testimonials.map((testimonial, index) => (
+            <div
+              class={`absolute w-full transition-all duration-700 ease-in-out transform ${
+                index === 0
+                  ? 'opacity-100 translate-x-0 z-10'
+                  : 'opacity-0 translate-x-full z-0'
+              }`}
+              id={`slide-${index}`}
+            >
+              <div class="rounded-2xl border border-white/10 bg-white/5 p-8 md:p-12 backdrop-blur-sm hover:border-[#5b5bff]/30 transition-colors duration-300">
+                <!-- Rating Stars -->
+                <div class="flex gap-1 mb-6">
+                  {[...Array(testimonial.rating)].map(() => (
+                    <svg
+                      class="w-5 h-5 text-[#ffd93d]"
+                      fill="currentColor"
+                      viewBox="0 0 20 20"
+                    >
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  ))}
+                </div>
+
+                <!-- Quote -->
+                <blockquote class="text-xl text-white mb-8 italic leading-relaxed">
+                  "{testimonial.content}"
+                </blockquote>
+
+                <!-- Author Info -->
+                <div class="flex items-center gap-4">
+                  <img
+                    src={testimonial.image}
+                    alt={testimonial.name}
+                    class="w-14 h-14 rounded-full object-cover border-2 border-[#5b5bff]/30"
+                  />
+                  <div>
+                    <p class="font-bold text-white">{testimonial.name}</p>
+                    <p class="text-sm text-white/60">{testimonial.role}</p>
+                    <p class="text-xs text-[#5b5bff]">{testimonial.location}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <!-- Navigation Dots -->
+      <div class="flex justify-center gap-3 mt-10">
+        {
+          testimonials.map((_, index) => (
+            <button
+              class={`h-3 rounded-full transition-all duration-300 cursor-pointer ${
+                index === 0
+                  ? 'w-8 bg-[#5b5bff]'
+                  : 'w-3 bg-white/20 hover:bg-white/40'
+              }`}
+              id={`dot-${index}`}
+              aria-label={`Go to testimonial ${index + 1}`}
+            />
+          ))
+        }
+      </div>
+
+      <!-- Prev/Next Buttons (visible on larger screens) -->
+      <div class="hidden md:flex justify-between absolute top-1/2 -translate-y-1/2 w-full px-4">
+        <button
+          class="group rounded-full bg-[#5b5bff]/20 p-3 text-white hover:bg-[#5b5bff]/40 transition-all duration-300"
+          id="carousel-prev"
+          aria-label="Previous testimonial"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"
+            />
+          </svg>
+        </button>
+        <button
+          class="group rounded-full bg-[#5b5bff]/20 p-3 text-white hover:bg-[#5b5bff]/40 transition-all duration-300"
+          id="carousel-next"
+          aria-label="Next testimonial"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const carousel = document.getElementById('testimonial-carousel');
+  const container = document.getElementById('carousel-container');
+  const slides = document.querySelectorAll('[id^="slide-"]');
+  const dots = document.querySelectorAll('[id^="dot-"]');
+  const prevBtn = document.getElementById('carousel-prev');
+  const nextBtn = document.getElementById('carousel-next');
+
+  let currentIndex = 0;
+  let autoplayInterval: NodeJS.Timeout;
+
+  const showSlide = (index: number) => {
+    slides.forEach((slide, i) => {
+      if (i === index) {
+        slide.classList.remove('opacity-0', 'translate-x-full');
+        slide.classList.add('opacity-100', 'translate-x-0');
+      } else {
+        slide.classList.remove('opacity-100', 'translate-x-0');
+        slide.classList.add('opacity-0', 'translate-x-full');
+      }
+    });
+
+    // Update dots
+    dots.forEach((dot, i) => {
+      if (i === index) {
+        dot.classList.add('w-8', 'bg-[#5b5bff]');
+        dot.classList.remove('w-3', 'bg-white/20');
+      } else {
+        dot.classList.remove('w-8', 'bg-[#5b5bff]');
+        dot.classList.add('w-3', 'bg-white/20');
+      }
+    });
+
+    currentIndex = index;
+  };
+
+  const nextSlide = () => {
+    showSlide((currentIndex + 1) % slides.length);
+  };
+
+  const prevSlide = () => {
+    showSlide((currentIndex - 1 + slides.length) % slides.length);
+  };
+
+  const startAutoplay = () => {
+    autoplayInterval = setInterval(nextSlide, 5000);
+  };
+
+  const stopAutoplay = () => {
+    clearInterval(autoplayInterval);
+  };
+
+  // Event listeners
+  nextBtn?.addEventListener('click', () => {
+    stopAutoplay();
+    nextSlide();
+    startAutoplay();
+  });
+
+  prevBtn?.addEventListener('click', () => {
+    stopAutoplay();
+    prevSlide();
+    startAutoplay();
+  });
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener('click', () => {
+      stopAutoplay();
+      showSlide(index);
+      startAutoplay();
+    });
+  });
+
+  carousel?.addEventListener('mouseenter', stopAutoplay);
+  carousel?.addEventListener('mouseleave', startAutoplay);
+
+  // Start autoplay on load
+  startAutoplay();
+</script>
