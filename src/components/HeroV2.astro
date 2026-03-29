@@ -1,0 +1,182 @@
+---
+// Hero Component - Taste-Skill Premium Edition
+// Motion Intensity: HIGH
+// Visual Density: LOW (premium feel)
+// Design Variance: MODERATE
+
+import ProfilePicture from "@assets/img/about-me.webp";
+import { WHATSAPP_URL } from "@utils/const";
+---
+
+<section
+  class="relative flex flex-col items-center justify-between gap-8 overflow-hidden px-10 py-16 md:px-20 md:py-32 xl:px-72"
+  id="inicio"
+>
+  <!-- Background Glow Effect (Taste-Skill) -->
+  <div
+    class="absolute -right-40 -top-40 h-96 w-96 rounded-full bg-[#5b5bff]/10 blur-3xl"
+  ></div>
+
+  <!-- Content Container -->
+  <div class="relative z-10 flex flex-col items-center gap-8 md:flex-row md:items-start md:gap-12 lg:gap-20">
+    <!-- Text Content -->
+    <div class="flex w-full flex-col items-center text-center md:items-start md:text-start lg:w-auto">
+      <!-- Subtitle with animation -->
+      <p
+        class="scroll-reveal text-xs font-semibold uppercase tracking-[0.20em] text-white/60"
+        style="--stagger-index: 0"
+      >
+        🚀 Desarrollo Web Profesional · Entrega Rápida
+      </p>
+
+      <!-- Main Headline with fade-in-up animation -->
+      <h1
+        class="scroll-reveal mt-6 text-balance text-4xl font-bold leading-tight md:text-5xl lg:text-6xl"
+        style="--stagger-index: 1"
+      >
+        <span class="font-pacifico text-5xl italic text-white md:text-6xl lg:text-7xl"
+          >Landing pages modernas</span
+        >
+        <br />
+        <span class="text-gradient">para tu negocio</span>
+      </h1>
+
+      <!-- Description with micro-animation -->
+      <p
+        class="scroll-reveal mt-6 max-w-2xl text-base leading-relaxed text-white/80 md:text-lg"
+        style="--stagger-index: 2"
+      >
+        Desarrollo sitios web rápidos, claros y enfocados en captar clientes.
+        Especializados en Astro, React y React Native. Ideales para pymes,
+        emprendimientos y startups que necesitan presencia online impactante.
+      </p>
+
+      <!-- Tech Stack Badge -->
+      <div
+        class="scroll-reveal mt-6 flex flex-wrap gap-2"
+        style="--stagger-index: 3"
+      >
+        <span class="inline-block rounded-full bg-[#5b5bff]/20 px-4 py-2 text-xs font-medium text-[#5b5bff] border border-[#5b5bff]/30">
+          ⚡ Astro
+        </span>
+        <span class="inline-block rounded-full bg-[#5b5bff]/20 px-4 py-2 text-xs font-medium text-[#5b5bff] border border-[#5b5bff]/30">
+          ⚛️ React
+        </span>
+        <span class="inline-block rounded-full bg-[#5b5bff]/20 px-4 py-2 text-xs font-medium text-[#5b5bff] border border-[#5b5bff]/30">
+          📱 React Native
+        </span>
+      </div>
+
+      <!-- CTA Buttons -->
+      <div
+        class="scroll-reveal mt-8 flex flex-col gap-4 w-full sm:flex-row sm:justify-center md:justify-start"
+        style="--stagger-index: 4"
+      >
+        <a
+          href={WHATSAPP_URL}
+          class="group relative overflow-hidden rounded-xl bg-[#5b5bff] px-8 py-3 text-center font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#6366f1] hover:shadow-glow-blue btn-ripple"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Quiero mi web/app
+        </a>
+
+        <a
+          href="#servicios"
+          class="rounded-xl border border-[#ffffff40] px-8 py-3 text-center font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:border-[#5b5bff] hover:bg-[#5b5bff]/10"
+        >
+          Ver servicios
+        </a>
+      </div>
+
+      <!-- Social Proof Stats -->
+      <div
+        class="scroll-reveal mt-12 grid grid-cols-3 gap-8 w-full md:w-auto"
+        style="--stagger-index: 5"
+      >
+        <div class="text-center">
+          <div class="text-2xl font-bold text-[#5b5bff]">50+</div>
+          <div class="text-xs text-white/60">Proyectos</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-[#5b5bff]">100%</div>
+          <div class="text-xs text-white/60">Satisfacción</div>
+        </div>
+        <div class="text-center">
+          <div class="text-2xl font-bold text-[#5b5bff]">3-14d</div>
+          <div class="text-xs text-white/60">Entrega</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Image with Parallax Effect -->
+    <div
+      class="scroll-reveal relative h-auto w-full md:w-96 lg:w-[500px]"
+      style="--stagger-index: 2"
+    >
+      <div class="relative overflow-hidden rounded-2xl border border-[#ffffff10] bg-gradient-to-br from-[#5b5bff]/20 to-[#6366f1]/10 p-2">
+        <img
+          src={ProfilePicture.src}
+          alt="Matías - Desarrollador Web y Apps Móviles"
+          loading="lazy"
+          class="aspect-[4/4.6] w-full rounded-xl object-cover shadow-elevation-2 hover-elevate"
+        />
+        <!-- Corner accent -->
+        <div class="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-[#5b5bff]/10 blur-3xl"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scroll Down Indicator -->
+  <div class="scroll-reveal relative z-10 mt-12 animate-bounce" style="--stagger-index: 6">
+    <svg
+      class="h-6 w-6 text-[#5b5bff]"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+        d="M19 14l-7 7m0 0l-7-7m7 7V3"
+      ></path>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .text-gradient {
+    @apply bg-gradient-to-r from-[#5b5bff] to-[#6366f1] bg-clip-text text-transparent;
+  }
+
+  /* Intersection Observer will trigger animation on scroll */
+  .scroll-reveal {
+    animation: fadeInUp 0.6s var(--animation-easing-smooth) both;
+    animation-delay: calc(var(--stagger-index) * 100ms);
+  }
+
+  /* Parallax effect on larger screens */
+  @media (min-width: 768px) {
+    :global(.hero-parallax) {
+      transform: translateY(calc(var(--scroll) * 0.5px));
+    }
+  }
+</style>
+
+<script>
+  // Intersection Observer para scroll reveal
+  const revealElements = document.querySelectorAll('.scroll-reveal');
+
+  const revealOnScroll = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.style.animationPlayState = 'running';
+      }
+    });
+  });
+
+  revealElements.forEach((element) => {
+    revealOnScroll.observe(element);
+  });
+</script>

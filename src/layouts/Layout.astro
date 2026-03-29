@@ -1,5 +1,8 @@
 ---
 import { ClientRouter } from "astro:transitions";
+import SchemaMarkup from "@components/SchemaMarkup.astro";
+import Analytics from "@vercel/analytics/astro";
+import "@styles/animations.css";
 
 interface Props {
   title: string;
@@ -7,11 +10,10 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -32,10 +34,15 @@ import Analytics from "@vercel/analytics/astro";
 
     <title>{title}</title>
     <ClientRouter />
+
+    <!-- Schema Markup -->
+    <SchemaMarkup />
+
   </head>
   <body>
     <slot />
     <Analytics />
+
     <style is:global>
       html {
         font-family: "Poppins", system-ui, sans-serif;

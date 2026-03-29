@@ -8,15 +8,16 @@ import { Image } from "astro:assets";
   class="flex flex-col items-center justify-between gap-10 bg-[#020617] px-10 py-20 md:flex-row md:px-20 xl:px-72"
 >
   <div class="w-full md:w-1/2">
-    <p class="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">
+    <p data-reveal="up" class="text-xs font-semibold uppercase tracking-[0.25em] text-white/50">
       Quién te construirá el sitio
     </p>
     <h2
+      data-reveal="up" data-reveal-delay="100"
       class="mb-4 mt-2 w-fit border-b-4 border-solid border-b-[#7477FF] text-2xl font-bold text-white"
     >
       Sobre mí
     </h2>
-    <p class="text-sm leading-relaxed text-white/80 md:text-base">
+    <p data-reveal="up" data-reveal-delay="200" class="text-sm leading-relaxed text-white/80 md:text-base">
       Tengo 8 años desarrollando soluciones web para empresas y emprendimientos.
       Hoy me enfoco en crear landing pages rápidas y claras, pensadas para
       negocios que necesitan presencia online sin complicarse.
@@ -38,7 +39,7 @@ import { Image } from "astro:assets";
     </ul>
   </div>
 
-  <div class="w-full max-w-md md:w-1/2">
+  <div data-reveal="right" data-reveal-delay="300" class="w-full max-w-md md:w-1/2">
     <Image
       class="rotate-y-180 aspect-square w-full rounded-xl object-cover shadow-md"
       src={ProfilePicture}
