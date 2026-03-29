@@ -1,4 +1,6 @@
 ---
+// Projects Portfolio - Taste-Skill Premium Edition
+// Motion Intensity: HIGH
 import IconWebSite from "@assets/icons/world.astro";
 import { getCollection } from "astro:content";
 
@@ -7,92 +9,163 @@ const projects = await getCollection("projects");
 
 <section
   id="proyectos"
-  class="flex flex-col justify-between gap-10 bg-[#111827] px-10 py-28 md:px-20 xl:px-72"
+  class="relative border-t border-white/10 bg-gradient-to-b from-[#0a0f1f] to-[#0f172a] px-10 py-24 md:px-20 xl:px-72 overflow-hidden"
 >
-  <!-- ENCABEZADO -->
-  <header class="max-w-3xl">
-    <h2 class="text-4xl font-bold tracking-tight text-white">
-      Proyectos reales
-    </h2>
+  <!-- Background Glow -->
+  <div class="absolute -left-40 top-40 h-80 w-80 rounded-full bg-[#5b5bff]/5 blur-3xl" />
 
-    <p class="mt-4 text-base leading-relaxed text-white/70">
-      Sitios reales que he construido para negocios reales. Todos con el mismo
-      enfoque: claridad, velocidad y resultados.
-    </p>
-  </header>
+  <div class="relative z-10">
+    <!-- ENCABEZADO -->
+    <header class="mb-20">
+      <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#5b5bff] mb-4">
+        Casos de éxito
+      </p>
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+        Proyectos realizados
+      </h2>
 
-  <!-- LISTA DE PROYECTOS -->
-  <div class="mt-10 grid grid-cols-1 gap-12 lg:grid-cols-2">
-    {
-      projects.map((project) => {
-        const { data } = project;
-        const {
-          title,
-          description,
-          image_desktop,
-          image_mobile,
-          website,
-          slug,
-        } = data;
+      <p class="text-base md:text-lg text-white/70 max-w-3xl leading-relaxed">
+        Sitios web y aplicaciones que he construido para clientes reales.
+        Cada proyecto fue diseñado con enfoque en conversión, velocidad y
+        experiencia del usuario.
+      </p>
+    </header>
 
-        const projectUrl = `/projects/${slug}`;
-        const ariaTitle = `Visitar el sitio web de ${title}`;
+    <!-- LISTA DE PROYECTOS -->
+    <div class="grid grid-cols-1 gap-10 lg:grid-cols-2">
+      {
+        projects.map((project, index) => {
+          const { data } = project;
+          const {
+            title,
+            description,
+            image_desktop,
+            image_mobile,
+            website,
+            slug,
+          } = data;
 
-        return (
-          <article class="flex flex-col justify-between rounded-2xl bg-white/5 p-6 shadow-xl ring-1 ring-white/10 transition-all hover:ring-white/20">
-            <div>
-              <h3
-                class="group relative mb-3 w-fit text-3xl font-semibold text-[#7477FF]"
-                transition:name={`name-${title}`}
-              >
-                {title}
-                <span class="absolute -bottom-1 left-0 h-[2px] w-10 bg-[#7477FF]/80 transition-all duration-300 group-hover:w-full group-hover:bg-white" />
-              </h3>
+          const projectUrl = `/projects/${slug}`;
+          const ariaTitle = `Visitar el sitio web de ${title}`;
 
-              <p class="text-base leading-relaxed text-white/80">
-                {description}
-              </p>
+          return (
+            <article
+              class="group flex flex-col justify-between rounded-2xl border border-white/10 bg-white/5 overflow-hidden hover:border-[#5b5bff]/30 card-premium"
+              style={{ '--stagger-index': index } as any}
+            >
+              <!-- Image Container with Overlay -->
+              <div class="relative overflow-hidden">
+                <a href={projectUrl} class="block overflow-hidden rounded-t-2xl">
+                  <picture>
+                    <source srcset={image_desktop} media="(min-width: 1024px)" />
+                    <img
+                      transition:name={`img-${slug}`}
+                      src={image_mobile}
+                      alt={`Vista del sitio web ${title}`}
+                      class="w-full aspect-video object-cover brightness-90 group-hover:brightness-100 group-hover:scale-110 transition-all duration-500"
+                      loading="lazy"
+                    />
+                  </picture>
+                </a>
 
-              <a href={projectUrl}>
-                <picture>
-                  <source srcset={image_desktop} media="(min-width: 1024px)" />
-                  <img
-                    transition:name={`img-${slug}`}
-                    src={image_mobile}
-                    alt={`Vista del sitio web ${title}`}
-                    class="mt-6 w-full rounded-lg shadow-md brightness-75 transition-all duration-300 hover:brightness-100"
-                    loading="lazy"
-                  />
-                </picture>
-              </a>
-            </div>
+                <!-- Overlay -->
+                <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              </div>
 
-            <footer class="mt-6 flex flex-col gap-4">
-              <a href={projectUrl}>
-                <p class="group relative w-fit text-sm font-semibold tracking-wide text-[#7477FF] transition-colors duration-300 hover:text-white">
-                  Ver más detalles de este proyecto
-                  <span class="absolute bottom-0 left-0 h-[2px] w-0 bg-white transition-all duration-300 group-hover:w-full" />
-                </p>
-              </a>
+              <!-- Content -->
+              <div class="p-6 md:p-8 flex flex-col gap-4 flex-grow">
+                <div>
+                  <h3 class="group/title relative text-2xl md:text-3xl font-bold text-white mb-3">
+                    {title}
+                    <span class="absolute -bottom-2 left-0 h-[3px] w-0 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] group-hover/title:w-full transition-all duration-300" />
+                  </h3>
 
-              <div class="flex items-center gap-3 text-sm text-white/70">
+                  <p class="text-white/70 text-sm md:text-base leading-relaxed">
+                    {description}
+                  </p>
+                </div>
+
+                <!-- Tech Stack o Stats (opcional) -->
+                <div class="flex flex-wrap gap-2 mt-2">
+                  <span class="inline-block bg-[#5b5bff]/10 text-[#5b5bff] text-xs font-medium px-3 py-1 rounded-full border border-[#5b5bff]/30">
+                    Sitio Web
+                  </span>
+                </div>
+              </div>
+
+              <!-- Footer CTA -->
+              <div class="px-6 md:px-8 pb-6 md:pb-8 flex flex-col gap-3 border-t border-white/10">
+                <a href={projectUrl} class="text-sm font-semibold text-[#5b5bff] hover:text-white transition-colors flex items-center gap-2 group/link">
+                  Ver caso de éxito completo
+                  <svg class="w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </a>
+
                 {website && (
                   <a
-                    class="flex items-center gap-2 hover:text-white/100"
+                    class="inline-flex items-center gap-2 text-white/60 hover:text-white hover:bg-[#5b5bff]/10 px-4 py-2 rounded-lg transition-all duration-300"
                     href={website}
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={ariaTitle}
                   >
-                    <IconWebSite className="size-5" />
-                    <span>Ver sitio</span>
+                    <IconWebSite className="size-4" />
+                    <span class="text-sm font-medium">Visitar sitio live</span>
                   </a>
                 )}
               </div>
-            </footer>
-          </article>
-        );
-      })
-    }
+            </article>
+          );
+        })
+      }
+    </div>
+
+    <!-- Bottom CTA -->
+    <div class="mt-20 text-center">
+      <p class="text-white/60 mb-6">
+        ¿Te gustaría contar tu proyecto? Hablemos sobre tu idea.
+      </p>
+      <a
+        href="#contacto"
+        class="inline-flex items-center gap-2 px-8 py-3 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-lg hover:shadow-[0_0_30px_rgba(91,91,255,0.4)] hover:scale-105 transition-all duration-300 btn-ripple"
+      >
+        💬 Solicitar presupuesto
+      </a>
+    </div>
   </div>
 </section>
+
+<style>
+  .card-premium {
+    transition: all var(--animation-duration-base) var(--animation-easing-smooth);
+  }
+
+  .card-premium:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(91, 91, 255, 0.1);
+  }
+
+  .btn-ripple {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-ripple::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+  }
+
+  .btn-ripple:active::after {
+    width: 300px;
+    height: 300px;
+  }
+</style>
