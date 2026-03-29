@@ -45,13 +45,13 @@ const FAQS = [
   <div class="relative z-10">
     <!-- Header -->
     <div class="mx-auto max-w-3xl text-center mb-16">
-      <p class="text-xs font-semibold uppercase tracking-[0.15em] text-[#5b5bff] mb-4">
+      <p data-reveal="up" class="text-xs font-semibold uppercase tracking-[0.15em] text-[#5b5bff] mb-4">
         Dudas frecuentes
       </p>
-      <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">
+      <h2 data-reveal="up" data-reveal-delay="100" class="text-4xl md:text-5xl font-bold text-white mb-6">
         Preguntas frecuentes
       </h2>
-      <p class="text-base md:text-lg text-white/70">
+      <p data-reveal="up" data-reveal-delay="200" class="text-base md:text-lg text-white/70">
         Las dudas más comunes resueltas. ¿Tienes otra pregunta? Escríbeme directo por WhatsApp.
       </p>
     </div>
@@ -61,6 +61,8 @@ const FAQS = [
       {
         FAQS.map((item, index) => (
           <details
+            data-reveal="up"
+            data-reveal-delay={`${index * 100}`}
             class="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm hover:border-[#5b5bff]/30 transition-colors duration-300 cursor-pointer overflow-hidden"
             id={`faq-${item.id}`}
           >
@@ -100,7 +102,7 @@ const FAQS = [
     </div>
 
     <!-- CTA -->
-    <div class="mt-16 text-center">
+    <div data-reveal="up" class="mt-16 text-center">
       <p class="text-white/60 mb-6">
         ¿Necesitas más información personalizada?
       </p>

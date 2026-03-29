@@ -1,6 +1,8 @@
 ---
 import { ClientRouter } from "astro:transitions";
 import SchemaMarkup from "@components/SchemaMarkup.astro";
+import Analytics from "@vercel/analytics/astro";
+import "@styles/animations.css";
 
 interface Props {
   title: string;
@@ -8,11 +10,10 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
-import Analytics from "@vercel/analytics/astro";
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="description" content={description} />
@@ -37,55 +38,10 @@ import Analytics from "@vercel/analytics/astro";
     <!-- Schema Markup -->
     <SchemaMarkup />
 
-    <!-- ScrollReveal CDN -->
-    <script
-      src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"
-    ></script>
   </head>
   <body>
     <slot />
     <Analytics />
-
-    <!-- Import Animations CSS -->
-    <link rel="stylesheet" href="/src/styles/animations.css" />
-
-    <!-- ScrollReveal Init -->
-    <script>
-      window.addEventListener('load', () => {
-        if (typeof ScrollReveal !== 'undefined') {
-          ScrollReveal().reveal('.scroll-reveal-fade', {
-            distance: '0px',
-            duration: 800,
-            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-            interval: 100,
-          });
-
-          ScrollReveal().reveal('.scroll-reveal-up', {
-            distance: '30px',
-            origin: 'bottom',
-            duration: 800,
-            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-            interval: 100,
-          });
-
-          ScrollReveal().reveal('.scroll-reveal-left', {
-            distance: '50px',
-            origin: 'left',
-            duration: 800,
-            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-            interval: 100,
-          });
-
-          ScrollReveal().reveal('.scroll-reveal-right', {
-            distance: '50px',
-            origin: 'right',
-            duration: 800,
-            easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-            interval: 100,
-          });
-        }
-      });
-    </script>
 
     <style is:global>
       html {

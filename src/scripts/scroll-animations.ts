@@ -1,77 +1,48 @@
 /**
- * Scroll Reveal Animations
- * Initializes ScrollReveal for premium animation effects
+ * Scroll Reveal Animations - Intersection Observer based
+ * Lightweight, no CDN dependency, Astro-friendly
  * Motion Intensity: HIGH
  */
 
 export function initScrollReveal() {
-  // Check if ScrollReveal is available
-  if (typeof (window as any).ScrollReveal === 'undefined') {
-    console.warn('ScrollReveal not loaded');
-    return;
-  }
+  const elements = document.querySelectorAll('[data-reveal]');
 
-  const ScrollReveal = (window as any).ScrollReveal;
+  if (!elements.length) return;
 
-  // Reset ScrollReveal instances
-  const sr = ScrollReveal({
-    distance: '30px',
-    duration: 800,
-    easing: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-    delay: 100,
-    reset: false,
-    viewFactor: 0.15,
-    scale: 1,
-    opacity: 0,
-  });
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          const el = entry.target as HTMLElement;
+          const delay = el.dataset.revealDelay || '0';
 
-  // Reveal animations for different elements
-  sr.reveal('.scroll-reveal-fade', {
-    distance: '0px',
-    opacity: 0,
-  });
+          setTimeout(() => {
+            el.classList.add('revealed');
+          }, parseInt(delay));
 
-  sr.reveal('.scroll-reveal-up', {
-    origin: 'bottom',
-    distance: '30px',
-  });
+          observer.unobserve(el);
+        }
+      });
+    },
+    {
+      threshold: 0.1,
+      rootMargin: '0px 0px -60px 0px',
+    }
+  );
 
-  sr.reveal('.scroll-reveal-left', {
-    origin: 'left',
-    distance: '50px',
-  });
-
-  sr.reveal('.scroll-reveal-right', {
-    origin: 'right',
-    distance: '50px',
-  });
-
-  sr.reveal('.scroll-reveal-scale', {
-    distance: '0px',
-    scale: 0.9,
-  });
-
-  // Special stagger effect for lists
-  sr.reveal('.stagger-item', {
-    distance: '30px',
-    origin: 'bottom',
-    interval: 150,
-  });
-
-  sr.reveal('.card-premium', {
-    distance: '30px',
-    origin: 'bottom',
-    interval: 100,
-  });
-
-  sr.reveal('section', {
-    distance: '0px',
-    opacity: 1,
-  });
+  elements.forEach((el) => observer.observe(el));
 }
 
-// Initialize on document load
-document.addEventListener('DOMContentLoaded', initScrollReveal);
+// Run on load and after Astro page transitions
+if (typeof window !== 'undefined') {
+  // Use requestAnimationFrame to ensure DOM is ready
+  const init = () => requestAnimationFrame(initScrollReveal);
 
-// Reinitialize after Astro transitions (for client-side navigation)
-document.addEventListener('astro:after-swap', initScrollReveal);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+
+  document.addEventListener('astro:after-swap', init);
+}

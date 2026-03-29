@@ -145,10 +145,11 @@ const NAV_LINKS = [
 </style>
 
 <script>
-  // Mobile menu toggle (placeholder)
+  // Mobile menu toggle
   const toggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
   toggle?.addEventListener('click', () => {
-    console.log('Mobile menu toggle clicked');
-    // Future: implement mobile menu
+    mobileMenu?.classList.toggle('hidden');
   });
 </script>
