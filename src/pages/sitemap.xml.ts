@@ -30,7 +30,7 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     .map(
       (project) => `
   <url>
-    <loc>https://codeamus.dev/projects/${project.slug}</loc>
+    <loc>https://codeamus.dev/projects/${project.id}</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
