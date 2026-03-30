@@ -171,7 +171,7 @@ import { WHATSAPP_URL } from "@utils/const";
   const revealOnScroll = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.style.animationPlayState = 'running';
+        (entry.target as HTMLElement).style.animationPlayState = 'running';
       }
     });
   });
