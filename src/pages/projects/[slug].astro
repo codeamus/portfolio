@@ -99,7 +99,7 @@ export const prerender = true;
     <section class="px-6 py-10 md:px-12 xl:px-72 border-b border-white/10">
       <p class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Stack tecnológico</p>
       <div class="flex flex-wrap gap-2">
-        {technologies.map((tech) => (
+        {technologies.map((tech: string) => (
           <span class="px-3 py-1.5 bg-[#5b5bff]/10 text-[#8b8bff] rounded-lg text-xs font-semibold border border-[#5b5bff]/20 uppercase tracking-wide">
             {tech}
           </span>

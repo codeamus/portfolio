@@ -46,12 +46,10 @@ const projects = await getCollection("projects");
             slug,
             type,
             technologies,
-            metrics,
           } = data;
 
           const projectUrl = `/projects/${slug}`;
           const ariaTitle = `Visitar el sitio web de ${title}`;
-          const isApp = type === "app" || type === "fullstack";
 
           return (
             <article
@@ -105,7 +103,7 @@ const projects = await getCollection("projects");
                 {/* Technologies */}
                 {technologies && technologies.length > 0 && (
                   <div class="flex flex-wrap gap-2 mb-6">
-                    {technologies.slice(0, 3).map((tech) => (
+                    {technologies.slice(0, 3).map((tech: string) => (
                       <span class="inline-block text-xs font-medium px-2 py-1 bg-[#5b5bff]/10 text-[#5b5bff] rounded-full border border-[#5b5bff]/20">
                         {tech}
                       </span>
