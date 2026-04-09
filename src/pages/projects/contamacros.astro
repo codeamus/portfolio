@@ -139,7 +139,7 @@ const metaDescription =
 
   <!-- Content Section -->
   <section class="relative px-6 py-24 md:px-12 xl:px-72 border-t border-white/10">
-    <div class="prose prose-invert max-w-none mb-24">
+    <div class="max-w-4xl prose prose-invert prose-lg mb-24">
       <article set:html={body} />
     </div>
   </section>
@@ -242,24 +242,34 @@ const metaDescription =
   }
 
   .prose p {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    line-height: 1.8;
-    font-size: 1.05em;
+    margin-top: 1.2em;
+    margin-bottom: 1.2em;
+    line-height: 1.85;
+    font-size: 1.1em;
+    color: rgb(255 255 255 / 0.85);
   }
 
   .prose h2 {
-    margin-top: 2.5em;
-    margin-bottom: 1em;
-    font-size: 2.25em;
+    margin-top: 3em;
+    margin-bottom: 1.2em;
+    font-size: 2.5em;
     font-weight: 800;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em;
+    color: rgb(255 255 255);
+    padding-bottom: 0.5em;
+    border-bottom: 2px solid rgb(91 91 255 / 0.2);
   }
 
   .prose h3 {
-    margin-top: 1.8em;
-    margin-bottom: 0.8em;
-    font-size: 1.75em;
+    margin-top: 2em;
+    margin-bottom: 1em;
+    font-size: 1.5em;
+    font-weight: 700;
+    color: rgb(255 255 255);
+  }
+
+  .prose strong {
+    color: rgb(255 255 255);
     font-weight: 700;
   }
 
@@ -267,13 +277,18 @@ const metaDescription =
   .prose ol {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
-    padding-left: 1.8em;
+    padding-left: 2.2em;
   }
 
   .prose li {
-    margin-top: 0.6em;
-    margin-bottom: 0.6em;
-    line-height: 1.7;
+    margin-top: 0.8em;
+    margin-bottom: 0.8em;
+    line-height: 1.75;
+    color: rgb(255 255 255 / 0.85);
+  }
+
+  .prose li strong {
+    color: rgb(91 91 255);
   }
 
   .prose code {
