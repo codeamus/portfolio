@@ -3,7 +3,7 @@ import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 
 const projects = await getCollection("projects");
-const project = projects.find((p) => p.slug === "contamacros");
+const project = projects.find((p: any) => p.slug === "contamacros" || p.id === "contamacros");
 
 if (!project) {
   return new Response("Proyecto no encontrado", { status: 404 });
@@ -118,7 +118,7 @@ const stack = [
       <div class="flex-1">
         <p class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Stack tecnológico</p>
         <div class="flex flex-wrap gap-2">
-          {technologies && technologies.map((tech) => (
+          {technologies && technologies.map((tech: any) => (
             <span class="px-3 py-1.5 bg-[#5b5bff]/10 text-[#8b8bff] rounded-lg text-xs font-semibold border border-[#5b5bff]/20 uppercase tracking-wide">
               {tech}
             </span>
@@ -218,7 +218,7 @@ const stack = [
       </div>
       <div class="px-6 md:px-12 xl:px-72 overflow-x-auto scrollbar-hide">
         <div class="flex gap-5 pb-4" style="width: max-content;">
-          {appScreenshots.map((screenshot, index) => (
+          {appScreenshots.map((screenshot: any, index: number) => (
             <div class="flex-shrink-0 w-64 group">
               <div class="relative h-[520px] rounded-2xl overflow-hidden border border-white/10 hover:border-[#5b5bff]/50 transition-all duration-500 shadow-xl hover:shadow-[0_20px_50px_rgba(91,91,255,0.2)]">
                 <img
