@@ -3,8 +3,13 @@ title: ContaMacros
 slug: contamacros
 description: App móvil para contar calorías y macronutrientes enfocada en el mercado chileno. Escanea productos con código de barras, usa IA para reconocer platos y ofrece Fitness Coach Pro conversacional.
 type: fullstack
-image_desktop: /assets/images/projects/contamacros-desktop.svg
-image_mobile: /assets/images/projects/contamacros-mobile.svg
+image_desktop: /assets/images/projects/contamacros-desktop.webp
+image_mobile: /assets/images/projects/contamacros-mobile.webp
+appScreenshots:
+  - /assets/images/projects/contamacros-app-coach.webp
+  - /assets/images/projects/contamacros-app-diary.webp
+  - /assets/images/projects/contamacros-app-home.webp
+  - /assets/images/projects/contamacros-app-scan.webp
 website: "https://www.contamacros.cl/"
 appStore: "coming-soon"
 googlePlay: "coming-soon"
