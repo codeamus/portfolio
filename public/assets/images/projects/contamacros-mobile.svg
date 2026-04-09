@@ -1,0 +1,25 @@
+<svg width="600" height="1000" viewBox="0 0 600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mobGrad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a4d3e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f2818;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Phone frame -->
+  <rect width="600" height="1000" rx="40" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+  <!-- Screen -->
+  <rect x="10" y="10" width="580" height="980" rx="35" fill="url(#mobGrad1)"/>
+  <!-- Content -->
+  <text x="300" y="400" font-family="Inter, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="white" opacity="0.8">
+    ContaMacros
+  </text>
+  <text x="300" y="460" font-family="Inter, sans-serif" font-size="16" text-anchor="middle" fill="white" opacity="0.6">
+    Controla tus macros
+  </text>
+  <circle cx="300" cy="550" r="60" fill="none" stroke="#4caf50" stroke-width="3" opacity="0.5"/>
+  <text x="300" y="565" font-family="Inter, sans-serif" font-size="24" font-weight="bold" text-anchor="middle" fill="#4caf50">
+    📷
+  </text>
+  <!-- Notch -->
+  <rect x="220" y="0" width="160" height="25" rx="0" fill="#1a1a1a"/>
+</svg>

@@ -1,9 +1,5 @@
 ---
-import IconWebSite from "@assets/icons/world.astro";
-import Footer from "@components/Footer.astro";
-import Navbar from "@components/Navbar.astro";
 import Layout from "@layouts/Layout.astro";
-import { WHATSAPP_URL } from "@utils/const";
 import { getCollection, render } from "astro:content";
 
 export async function getStaticPaths() {
@@ -20,9 +16,11 @@ const { slug } = data;
 
 const {
   title,
+  description,
   image_desktop,
-  image_mobile,
   website,
+  github,
+  technologies,
   metaTitle,
   metaDescription,
 } = data;
@@ -32,109 +30,236 @@ const { Content } = await render(project);
 export const prerender = true;
 ---
 
-<Layout title={metaTitle} description={metaDescription}>
-  <Navbar />
+<Layout title={metaTitle || `${title} | CODEAMUS`} description={metaDescription || description}>
 
-  <main class="px-10 py-12 md:px-20 xl:px-72">
-    <!-- CABECERA DEL PROYECTO -->
-    <section>
-      <a
-        href="/#proyectos"
-        class="text-xs font-semibold uppercase tracking-wide text-white/60 hover:text-white/90"
-      >
-        ← Volver a proyectos
-      </a>
+  <!-- ─── BANNER HERO ─── -->
+  <section class="relative w-full h-[60vh] min-h-[420px] overflow-hidden bg-[#0f172a]">
+    {image_desktop && (
+      <img
+        src={image_desktop}
+        alt={title}
+        class="w-full h-full object-cover object-top"
+        transition:name={`img-${slug}`}
+      />
+    )}
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/60 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/80 via-transparent to-transparent"></div>
 
-      <h1
-        class="mt-3 text-3xl font-bold text-[#7477FF] md:text-4xl"
-        transition:name={`name-${title}`}
-      >
+    <!-- Back button -->
+    <a
+      href="/#proyectos"
+      class="absolute top-8 left-6 md:left-12 xl:left-72 inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/20"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+      </svg>
+      Volver
+    </a>
+
+    <!-- Content over banner -->
+    <div class="absolute bottom-0 left-0 right-0 px-6 pb-12 md:px-12 xl:px-72">
+      <span class="text-[#5b5bff] text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Caso de Estudio</span>
+      <h1 class="text-5xl md:text-6xl font-black text-white mb-3 leading-tight" transition:name={`name-${title}`}>
         {title}
       </h1>
+      {description && (
+        <p class="text-white/70 text-base max-w-xl leading-relaxed mb-6">{description}</p>
+      )}
 
-      <p class="mt-2 max-w-2xl text-base leading-relaxed text-white/80">
-        Proyecto real desarrollado para un negocio con necesidades específicas.
-        Aquí tienes un resumen del contexto, la solución implementada y el
-        resultado que se buscaba conseguir.
-      </p>
+      <div class="flex gap-3 flex-wrap">
+        {website && (
+          <a
+            href={website}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl text-sm hover:shadow-[0_10px_40px_rgba(91,91,255,0.4)] transition-all duration-300 hover:scale-105"
+          >
+            Visitar sitio →
+          </a>
+        )}
+        {github && (
+          <a
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl text-sm border border-white/20 hover:bg-white/20 transition-all duration-300 inline-flex items-center gap-2"
+          >
+            <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+            </svg>
+            GitHub
+          </a>
+        )}
+      </div>
+    </div>
+  </section>
 
-      <div
-        class="mt-6 rounded-2xl bg-gradient-to-br from-[#020617] to-[#0f172a] p-4"
-      >
-        <picture>
-          <source srcset={image_desktop} media="(min-width: 1024px)" />
-          <img
-            transition:name={`img-${slug}`}
-            src={image_mobile}
-            alt={`Vista del sitio web ${title}`}
-            class="w-full rounded-xl shadow-lg"
-            loading="lazy"
-          />
-        </picture>
+  <!-- ─── TECH BADGES ─── -->
+  {technologies && technologies.length > 0 && (
+    <section class="px-6 py-10 md:px-12 xl:px-72 border-b border-white/10">
+      <p class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Stack tecnológico</p>
+      <div class="flex flex-wrap gap-2">
+        {technologies.map((tech) => (
+          <span class="px-3 py-1.5 bg-[#5b5bff]/10 text-[#8b8bff] rounded-lg text-xs font-semibold border border-[#5b5bff]/20 uppercase tracking-wide">
+            {tech}
+          </span>
+        ))}
       </div>
     </section>
+  )}
 
-    <!-- CONTENIDO / DESCRIPCIÓN -->
-    <section
-      class="mt-10 grid gap-10 md:grid-cols-[minmax(0,2fr)_minmax(0,1fr)]"
-    >
-      <div>
-        <h2 class="text-2xl font-bold text-[#7477FF] md:text-3xl">
-          Descripción del proyecto
-        </h2>
-        <div
-          class="prose prose-invert mt-4 max-w-none text-base leading-relaxed"
-        >
-          <Content />
-        </div>
+  <!-- ─── CONTENIDO ─── -->
+  <section class="px-6 py-16 md:px-12 xl:px-72">
+    <div class="grid md:grid-cols-[1fr_280px] gap-12">
+
+      <!-- Descripción -->
+      <div class="prose-project">
+        <Content />
       </div>
 
-      <aside class="space-y-6 md:pl-6">
-        {
-          website && (
-            <div class="rounded-xl bg-white/5 p-4 shadow-md">
-              <h3 class="text-base font-semibold text-white">
-                Ver sitio en línea
-              </h3>
-              <p class="mt-1 text-xs text-white/80">
-                Puedes revisar la versión pública de este proyecto y ver cómo se
-                ve en producción.
-              </p>
-              <a
-                href={website}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={`Visitar el sitio web de ${title}`}
-                class="mt-3 inline-flex items-center gap-2 rounded-lg bg-[#7477FF] px-4 py-2 text-xs font-semibold text-white transition-all hover:bg-[#8a8dff]"
-              >
-                <IconWebSite className="size-4" />
-                <span>Ver sitio</span>
-              </a>
+      <!-- Sidebar -->
+      <aside class="flex flex-col gap-4">
+        {website && (
+          <div class="p-5 bg-white/4 border border-white/10 rounded-2xl">
+            <p class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Proyecto en vivo</p>
+            <a
+              href={website}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl text-sm hover:shadow-[0_10px_40px_rgba(91,91,255,0.3)] transition-all duration-300 hover:scale-105"
+            >
+              Ver sitio →
+            </a>
+          </div>
+        )}
+
+        {github && (
+          <div class="p-5 bg-white/4 border border-white/10 rounded-2xl">
+            <p class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Código fuente</p>
+            <a
+              href={github}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="flex items-center justify-center gap-2 w-full px-4 py-3 bg-white/8 text-white font-semibold rounded-xl text-sm border border-white/15 hover:bg-white/15 transition-all duration-300"
+            >
+              <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              Ver en GitHub
+            </a>
+          </div>
+        )}
+
+        <!-- Tipo de proyecto -->
+        <div class="p-5 bg-white/4 border border-white/10 rounded-2xl">
+          <p class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Tipo</p>
+          <div class="flex flex-col gap-2">
+            <div class="flex items-center gap-2 text-white/80 text-sm">
+              <span class="w-1.5 h-1.5 bg-[#5b5bff] rounded-full"></span>
+              Sitio Web
             </div>
-          )
-        }
+            <div class="flex items-center gap-2 text-white/80 text-sm">
+              <span class="w-1.5 h-1.5 bg-[#5b5bff] rounded-full"></span>
+              Diseño Responsive
+            </div>
+            <div class="flex items-center gap-2 text-white/80 text-sm">
+              <span class="w-1.5 h-1.5 bg-[#5b5bff] rounded-full"></span>
+              Optimizado SEO
+            </div>
+          </div>
+        </div>
       </aside>
-    </section>
+    </div>
+  </section>
 
-    <!-- CTA DE NEGOCIO -->
-    <section class="mt-12 rounded-2xl bg-[#7477FF]/10 p-6 text-center md:p-8">
-      <h3 class="text-lg font-bold text-white md:text-xl">
-        ¿Quieres un sitio similar para tu negocio?
-      </h3>
-      <p class="mt-2 text-base leading-relaxed text-white/75">
-        Puedo ayudarte a crear una landing page o sitio enfocado en resultados,
-        con el mismo nivel de cuidado y detalle aplicado en este proyecto.
-      </p>
+  <!-- ─── CTA ─── -->
+  <section class="px-6 py-20 md:px-12 xl:px-72 border-t border-white/10">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 p-8 md:p-12 bg-gradient-to-r from-[#5b5bff]/10 to-[#6366f1]/10 border border-[#5b5bff]/20 rounded-2xl">
+      <div>
+        <h3 class="text-2xl md:text-3xl font-black text-white mb-2">¿Quieres algo similar?</h3>
+        <p class="text-white/60 text-sm">Cuéntanos tu idea y construimos algo extraordinario juntos.</p>
+      </div>
       <a
-        href={WHATSAPP_URL}
-        class="mt-4 inline-block rounded-xl bg-[#7477FF] px-6 py-3 text-base font-semibold uppercase tracking-wide text-white transition-all duration-300 hover:bg-[#8a8dff]"
-        target="_blank"
-        rel="noopener noreferrer"
+        href="/#contacto"
+        class="flex-shrink-0 px-8 py-4 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl text-sm hover:shadow-[0_10px_40px_rgba(91,91,255,0.4)] transition-all duration-300 hover:scale-105 text-center"
       >
-        Hablemos de tu proyecto
+        Solicitar presupuesto →
       </a>
-    </section>
-  </main>
+    </div>
+  </section>
 
-  <Footer />
 </Layout>
+
+<style is:global>
+  /* ─── Prose para proyectos web ─── */
+  .prose-project p {
+    margin-top: 1.1em;
+    margin-bottom: 1.1em;
+    line-height: 1.8;
+    font-size: 0.95rem;
+    color: rgb(255 255 255 / 0.75);
+  }
+
+  .prose-project strong {
+    color: rgb(255 255 255);
+    font-weight: 700;
+  }
+
+  .prose-project h2 {
+    margin-top: 2.5em;
+    margin-bottom: 0.8em;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: rgb(255 255 255);
+    padding-bottom: 0.4em;
+    border-bottom: 1px solid rgb(91 91 255 / 0.2);
+  }
+
+  .prose-project h3 {
+    margin-top: 1.6em;
+    margin-bottom: 0.6em;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: rgb(91 91 255);
+  }
+
+  .prose-project ul {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .prose-project ul li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.6em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    line-height: 1.7;
+    font-size: 0.9rem;
+    color: rgb(255 255 255 / 0.75);
+  }
+
+  .prose-project ul li::before {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background: #5b5bff;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.45em;
+  }
+
+  .prose-project a {
+    color: rgb(91 91 255);
+    text-decoration: underline;
+    transition: color 0.3s;
+  }
+
+  .prose-project a:hover {
+    color: rgb(255 255 255);
+  }
+</style>
