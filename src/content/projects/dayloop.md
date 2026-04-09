@@ -3,8 +3,8 @@ title: Dayloop
 slug: dayloop
 description: App mobile para trackear hábitos de forma simple, visual y sin fricción. Soporta hábitos diarios, semanales y mensuales con estadísticas de streaks, notificaciones y soporte offline.
 type: fullstack
-image_desktop: /assets/images/projects/dayloop-desktop.webp
-image_mobile: /assets/images/projects/dayloop-mobile.webp
+image_desktop: /assets/images/projects/dayloop-desktop.svg
+image_mobile: /assets/images/projects/dayloop-mobile.svg
 website: "https://www.dayloop.cl/"
 appStore: "https://apps.apple.com/us/app/dayloop-h%C3%A1bitos-diarios/id6757437094"
 googlePlay: "https://play.google.com/store/apps/details?id=com.codeamus.dayloop"

@@ -1,0 +1,31 @@
+<svg width="600" height="1000" viewBox="0 0 600 1000" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="mobGrad2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c4a5f;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a2f3f;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <!-- Phone frame -->
+  <rect width="600" height="1000" rx="40" fill="#1a1a1a" stroke="#333" stroke-width="2"/>
+  <!-- Screen -->
+  <rect x="10" y="10" width="580" height="980" rx="35" fill="url(#mobGrad2)"/>
+  <!-- Content -->
+  <text x="300" y="400" font-family="Inter, sans-serif" font-size="40" font-weight="bold" text-anchor="middle" fill="white" opacity="0.8">
+    Dayloop
+  </text>
+  <text x="300" y="460" font-family="Inter, sans-serif" font-size="16" text-anchor="middle" fill="white" opacity="0.6">
+    Tus hábitos, visualizados
+  </text>
+  <!-- Calendar representation -->
+  <g opacity="0.4">
+    <rect x="100" y="520" width="80" height="80" rx="10" fill="#4caf50"/>
+    <rect x="200" y="520" width="80" height="80" rx="10" fill="#4caf50"/>
+    <rect x="300" y="520" width="80" height="80" rx="10" fill="#4caf50"/>
+    <rect x="400" y="520" width="80" height="80" rx="10" fill="#2196f3"/>
+  </g>
+  <text x="300" y="680" font-family="Inter, sans-serif" font-size="20" text-anchor="middle" fill="#4caf50" font-weight="bold">
+    3️⃣ Streak
+  </text>
+  <!-- Notch -->
+  <rect x="220" y="0" width="160" height="25" rx="0" fill="#1a1a1a"/>
+</svg>
