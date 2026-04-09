@@ -29,111 +29,87 @@ const metaDescription =
 ---
 
 <Layout title={metaTitle} description={metaDescription}>
-  <section class="bg-gradient-to-b from-[#0f172a] to-[#0a0f1f] min-h-screen">
-    <!-- Back Button -->
-    <div class="px-6 py-8 md:px-12 xl:px-72">
-      <a
-        href="/#proyectos"
-        class="inline-flex items-center gap-2 text-[#5b5bff] hover:text-white transition-colors"
-      >
-        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M15 19l-7-7 7-7"
-          />
-        </svg>
-        Volver a proyectos
-      </a>
+  <!-- Hero Section with Background Gradient -->
+  <section class="relative bg-gradient-to-br from-[#0f172a] via-[#1a2d4a] to-[#0a0f1f] overflow-hidden">
+    <!-- Background Elements -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none">
+      <div class="absolute -top-40 -right-40 w-80 h-80 bg-[#5b5bff] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
+      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-[#6366f1] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" style="animation-delay: 2s;"></div>
     </div>
 
-    <!-- Hero Header -->
-    <div class="px-6 py-12 md:px-12 xl:px-72 border-b border-white/10">
-      <div class="max-w-2xl">
-        <p class="text-[#5b5bff] text-sm font-semibold uppercase tracking-widest mb-4">
-          Caso de estudio
-        </p>
-        <h1 class="text-5xl md:text-6xl font-bold text-white mb-6">{title}</h1>
-        <p class="text-xl text-white/70 leading-relaxed mb-8">{description}</p>
+    <div class="relative z-10 px-6 py-8 md:px-12 xl:px-72">
+      <!-- Back Button -->
+      <a
+        href="/#proyectos"
+        class="inline-flex items-center gap-2 text-[#5b5bff] hover:text-white transition-colors duration-300 text-sm font-medium mb-12"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+        </svg>
+        Volver
+      </a>
 
-        <!-- Tech Stack -->
+      <!-- Main Hero -->
+      <div class="max-w-4xl mb-20">
+        <div class="flex items-center gap-3 mb-6">
+          <div class="h-1 w-12 bg-gradient-to-r from-[#5b5bff] to-[#6366f1]"></div>
+          <span class="text-[#5b5bff] text-xs font-semibold uppercase tracking-[0.15em]">Caso de Estudio</span>
+        </div>
+
+        <h1 class="text-6xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
+          {title}
+        </h1>
+
+        <p class="text-xl text-white/80 leading-relaxed mb-10 max-w-2xl">
+          {description}
+        </p>
+
+        <!-- Tech Stack - Better Spacing -->
         {technologies && technologies.length > 0 && (
-          <div class="flex flex-wrap gap-2 mb-8">
-            {technologies.slice(0, 6).map((tech) => (
-              <span class="inline-block px-2.5 py-1 bg-[#5b5bff]/20 text-[#5b5bff] rounded-full text-xs font-medium border border-[#5b5bff]/30">
+          <div class="flex flex-wrap gap-3 mb-12">
+            {technologies.slice(0, 8).map((tech) => (
+              <span class="px-3.5 py-2 bg-white/8 backdrop-blur-sm text-white/90 rounded-lg text-sm font-medium border border-white/15 hover:border-[#5b5bff]/50 hover:bg-white/12 transition-all duration-300">
                 {tech}
               </span>
             ))}
           </div>
         )}
 
-        <!-- Metrics -->
+        <!-- Metrics Box -->
         {metrics && (
-          <div class="grid grid-cols-3 gap-6 p-6 bg-white/5 rounded-lg border border-white/10 mb-8">
+          <div class="grid grid-cols-2 md:grid-cols-3 gap-6 p-6 md:p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 mb-12">
             {metrics.downloads && (
               <div>
-                <p class="text-white/60 text-xs mb-2 uppercase tracking-wide">Descargas</p>
-                <p class="text-2xl font-bold text-white">{metrics.downloads}</p>
+                <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-2">Descargas</p>
+                <p class="text-xl md:text-2xl font-bold text-white">{metrics.downloads}</p>
               </div>
             )}
             {metrics.rating && (
               <div>
-                <p class="text-white/60 text-xs mb-2 uppercase tracking-wide">Rating</p>
-                <p class="text-2xl font-bold text-white">{metrics.rating}</p>
+                <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-2">Rating</p>
+                <p class="text-xl md:text-2xl font-bold text-white">{metrics.rating}</p>
               </div>
             )}
             {metrics.reviews && (
               <div>
-                <p class="text-white/60 text-xs mb-2 uppercase tracking-wide">Plataformas</p>
-                <p class="text-2xl font-bold text-white">{metrics.reviews}</p>
+                <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-2">Plataformas</p>
+                <p class="text-xl md:text-2xl font-bold text-white">{metrics.reviews}</p>
               </div>
             )}
           </div>
         )}
-      </div>
-    </div>
 
-    <!-- Web & App Section -->
-    <div class="px-6 py-16 md:px-12 xl:px-72">
-      <div class="grid md:grid-cols-2 gap-12 mb-20">
-        <!-- Web Section -->
-        <div>
-          <h2 class="text-2xl font-bold text-white mb-6">🌐 Sitio Web</h2>
-          {image_desktop && (
-            <div class="mb-6 rounded-xl overflow-hidden border border-white/10 hover:border-[#5b5bff]/50 transition-all duration-300">
-              <img
-                src={image_desktop}
-                alt={`${title} - Web Desktop`}
-                class="w-full h-auto object-cover"
-                loading="lazy"
-              />
-            </div>
-          )}
+        <!-- Primary CTA -->
+        <div class="flex gap-4 flex-wrap">
           {website && (
             <a
               href={website}
               target="_blank"
               rel="noopener noreferrer"
-              class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-semibold rounded-lg hover:shadow-[0_0_30px_rgba(91,91,255,0.4)] transition-all duration-300 w-full justify-center"
+              class="px-8 py-4 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl hover:shadow-[0_20px_60px_rgba(91,91,255,0.3)] transition-all duration-300 hover:scale-105"
             >
               Visitar sitio web →
             </a>
-          )}
-        </div>
-
-        <!-- Mobile / App Section -->
-        <div>
-          <h2 class="text-2xl font-bold text-white mb-6">📱 Aplicación Móvil</h2>
-          {image_mobile && (
-            <div class="mb-6 rounded-xl overflow-hidden border border-white/10">
-              <img
-                src={image_mobile}
-                alt={`${title} - App Mobile`}
-                class="w-full h-auto object-cover"
-                loading="lazy"
-              />
-            </div>
           )}
           <div class="flex gap-3">
             {appStore && appStore !== "coming-soon" && (
@@ -141,7 +117,7 @@ const metaDescription =
                 href={appStore}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-white/10 text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+                class="px-6 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
               >
                 App Store
               </a>
@@ -151,7 +127,7 @@ const metaDescription =
                 href={googlePlay}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="flex-1 inline-flex items-center justify-center gap-2 px-4 py-3 bg-white/10 text-white font-semibold rounded-lg border border-white/20 hover:bg-white/20 transition-all duration-300"
+                class="px-6 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
               >
                 Google Play
               </a>
@@ -160,35 +136,70 @@ const metaDescription =
         </div>
       </div>
 
-      <!-- Content -->
-      <div class="py-16 border-t border-white/10">
-        <div class="prose prose-invert max-w-none">
-          <article set:html={body} />
-        </div>
-      </div>
+      <!-- Hero Images Grid -->
+      <div class="grid md:grid-cols-2 gap-8 mb-24">
+        {image_desktop && (
+          <div class="group">
+            <div class="relative overflow-hidden rounded-2xl border border-white/10 hover:border-[#5b5bff]/50 transition-all duration-500 shadow-2xl">
+              <img
+                src={image_desktop}
+                alt={`${title} - Web Desktop`}
+                class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            <p class="text-white/60 text-sm font-medium mt-4">Sitio Web</p>
+          </div>
+        )}
 
-      <!-- CTA Footer -->
-      <div class="text-center py-16 border-t border-white/10">
-        <h3 class="text-3xl font-bold text-white mb-4">¿Te gustaría contar tu proyecto?</h3>
-        <p class="text-white/60 mb-8 max-w-2xl mx-auto">
-          Conversemos sobre tu idea. Podemos ayudarte a construir algo extraordinario.
-        </p>
-        <a
-          href="/#contacto"
-          class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-lg hover:shadow-[0_0_30px_rgba(91,91,255,0.4)] hover:scale-105 transition-all duration-300"
-        >
-          Solicitar presupuesto →
-        </a>
+        {image_mobile && (
+          <div class="group">
+            <div class="relative overflow-hidden rounded-2xl border border-white/10 hover:border-[#5b5bff]/50 transition-all duration-500 shadow-2xl">
+              <img
+                src={image_mobile}
+                alt={`${title} - App Mobile`}
+                class="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-700"
+                loading="eager"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            </div>
+            <p class="text-white/60 text-sm font-medium mt-4">Aplicación Móvil</p>
+          </div>
+        )}
       </div>
+    </div>
+  </section>
+
+  <!-- Content Section -->
+  <section class="relative px-6 py-24 md:px-12 xl:px-72 border-t border-white/10">
+    <div class="prose prose-invert max-w-none mb-24">
+      <article set:html={body} />
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="relative px-6 py-24 md:px-12 xl:px-72 border-t border-white/10 bg-gradient-to-b from-white/5 to-transparent">
+    <div class="max-w-2xl mx-auto text-center">
+      <h3 class="text-4xl md:text-5xl font-black text-white mb-6">¿Listo para tu próximo proyecto?</h3>
+      <p class="text-white/70 text-lg mb-12 leading-relaxed">
+        Conversemos sobre tu idea. Podemos ayudarte a construir algo extraordinario que impacte a tus usuarios.
+      </p>
+      <a
+        href="/#contacto"
+        class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl hover:shadow-[0_20px_60px_rgba(91,91,255,0.3)] transition-all duration-300 hover:scale-105"
+      >
+        Solicitar presupuesto →
+      </a>
     </div>
   </section>
 </Layout>
 
 <style is:global>
   .prose {
-    --prose-body: rgb(255 255 255 / 0.7);
+    --prose-body: rgb(255 255 255 / 0.8);
     --prose-headings: rgb(255 255 255);
-    --prose-lead: rgb(255 255 255 / 0.6);
+    --prose-lead: rgb(255 255 255 / 0.7);
     --prose-links: rgb(91 91 255);
     --prose-strong: rgb(255 255 255);
     --prose-code: rgb(91 91 255);
@@ -197,6 +208,7 @@ const metaDescription =
 
   .prose strong {
     color: rgb(255 255 255);
+    font-weight: 700;
   }
 
   .prose a {
@@ -210,58 +222,73 @@ const metaDescription =
   }
 
   .prose p {
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
-    line-height: 1.75;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    line-height: 1.8;
+    font-size: 1.05em;
   }
 
   .prose h2 {
-    margin-top: 2em;
+    margin-top: 2.5em;
     margin-bottom: 1em;
-    font-size: 1.875em;
-    font-weight: 700;
+    font-size: 2.25em;
+    font-weight: 800;
+    letter-spacing: -0.02em;
   }
 
   .prose h3 {
-    margin-top: 1.5em;
-    margin-bottom: 0.75em;
-    font-size: 1.5em;
-    font-weight: 600;
+    margin-top: 1.8em;
+    margin-bottom: 0.8em;
+    font-size: 1.75em;
+    font-weight: 700;
   }
 
   .prose ul,
   .prose ol {
-    margin-top: 1.25em;
-    margin-bottom: 1.25em;
-    padding-left: 1.625em;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    padding-left: 1.8em;
   }
 
   .prose li {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 0.6em;
+    margin-bottom: 0.6em;
+    line-height: 1.7;
   }
 
   .prose code {
-    background-color: rgb(91 91 255 / 0.1);
-    padding: 0.2em 0.4em;
-    border-radius: 0.25em;
+    background-color: rgb(91 91 255 / 0.15);
+    padding: 0.3em 0.6em;
+    border-radius: 0.4em;
     color: rgb(91 91 255);
-    font-size: 0.9em;
+    font-size: 0.95em;
+    border: 1px solid rgb(91 91 255 / 0.25);
   }
 
   .prose pre {
-    background-color: rgb(15 23 42 / 0.8);
+    background-color: rgb(15 23 42 / 0.95);
     border: 1px solid rgb(255 255 255 / 0.1);
-    border-radius: 0.5em;
-    padding: 1.5em;
+    border-radius: 1em;
+    padding: 2em;
     overflow-x: auto;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
   .prose blockquote {
     border-left: 4px solid rgb(91 91 255);
-    padding-left: 1em;
-    color: rgb(255 255 255 / 0.8);
+    padding-left: 1.5em;
+    color: rgb(255 255 255 / 0.85);
     font-style: italic;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+  }
+
+  @keyframes pulse {
+    0%, 100% {
+      opacity: 0.1;
+    }
+    50% {
+      opacity: 0.15;
+    }
   }
 </style>
