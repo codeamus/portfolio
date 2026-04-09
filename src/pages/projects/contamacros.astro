@@ -1,5 +1,5 @@
 ---
-import { getCollection } from "astro:content";
+import { getCollection, render } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 
 const projects = await getCollection("projects");
@@ -9,7 +9,8 @@ if (!project) {
   return new Response("Proyecto no encontrado", { status: 404 });
 }
 
-const { data, body } = project;
+const { Content } = await render(project);
+const { data } = project;
 const {
   title,
   description,
@@ -140,7 +141,7 @@ const metaDescription =
   <!-- Content Section -->
   <section class="relative px-6 py-24 md:px-12 xl:px-72 border-t border-white/10">
     <div class="max-w-4xl prose prose-invert prose-lg mb-24">
-      <article set:html={body} />
+      <Content />
     </div>
   </section>
 
