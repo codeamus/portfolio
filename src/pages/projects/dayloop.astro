@@ -1,5 +1,5 @@
 ---
-import { getCollection, render } from "astro:content";
+import { getCollection } from "astro:content";
 import Layout from "@layouts/Layout.astro";
 
 const projects = await getCollection("projects");
@@ -9,7 +9,6 @@ if (!project) {
   return new Response("Proyecto no encontrado", { status: 404 });
 }
 
-const { Content } = await render(project);
 const { data } = project;
 const {
   title,
@@ -20,281 +19,223 @@ const {
   technologies,
   metrics,
   image_desktop,
-  image_mobile,
 } = data;
 
 const metaTitle = data.metaTitle || `${title} | CODEAMUS`;
-const metaDescription =
-  data.metaDescription ||
-  description;
+const metaDescription = data.metaDescription || description;
+
+const features = [
+  {
+    icon: "🔥",
+    title: "Racha Visual (Streaks)",
+    desc: "Visualización clara de tu racha, histórico en calendario y motivación gamificada sin ser invasiva.",
+  },
+  {
+    icon: "📅",
+    title: "Frecuencia Flexible",
+    desc: "Hábitos diarios, semanales o mensuales. Múltiples hábitos simultáneos sin límite.",
+  },
+  {
+    icon: "🔔",
+    title: "Notificaciones Smart",
+    desc: "Recordatorios a la hora que definas. Sin spam: 1 notificación por hábito, máximo.",
+  },
+  {
+    icon: "📱",
+    title: "100% Offline",
+    desc: "SQLite local. Tus datos nunca salen del dispositivo. Privacidad total, cero dependencia cloud.",
+  },
+];
+
+const stack = [
+  { category: "Frontend", items: ["React Native 19", "Expo SDK 54", "TypeScript", "Expo Router"] },
+  { category: "Persistencia", items: ["SQLite Local", "Expo Notifications", "Expo Updates OTA"] },
+  { category: "Arquitectura", items: ["Domain Layer", "Data Layer", "Presentation Layer", "Clean Architecture"] },
+  { category: "Distribución", items: ["App Store (iOS)", "Google Play", "EAS Build", "EAS Submit"] },
+];
 ---
 
 <Layout title={metaTitle} description={metaDescription}>
-  <!-- Hero Section with Background Gradient -->
-  <section class="relative bg-gradient-to-br from-[#0f172a] via-[#1a2d4a] to-[#0a0f1f] overflow-hidden">
-    <!-- Background Elements -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none">
-      <div class="absolute -top-40 -right-40 w-80 h-80 bg-[#5b5bff] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse"></div>
-      <div class="absolute -bottom-40 -left-40 w-80 h-80 bg-[#6366f1] rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-pulse" style="animation-delay: 2s;"></div>
-    </div>
 
-    <div class="relative z-10 px-6 py-8 md:px-12 xl:px-72">
-      <!-- Back Button -->
-      <a
-        href="/#proyectos"
-        class="inline-flex items-center gap-2 text-[#5b5bff] hover:text-white transition-colors duration-300 text-sm font-medium mb-12"
-      >
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
-        </svg>
-        Volver
-      </a>
+  <!-- ─── BANNER HERO ─── -->
+  <section class="relative w-full h-[60vh] min-h-[420px] overflow-hidden bg-[#0f172a]">
+    <img
+      src={image_desktop}
+      alt={title}
+      class="w-full h-full object-cover object-top"
+    />
+    <!-- gradient overlay -->
+    <div class="absolute inset-0 bg-gradient-to-t from-[#0f172a] via-[#0f172a]/60 to-transparent"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-[#0f172a]/80 via-transparent to-transparent"></div>
 
-      <!-- Main Hero -->
-      <div class="max-w-4xl mb-20">
-        <div class="flex items-center gap-3 mb-6">
-          <div class="h-1 w-12 bg-gradient-to-r from-[#5b5bff] to-[#6366f1]"></div>
-          <span class="text-[#5b5bff] text-xs font-semibold uppercase tracking-[0.15em]">Caso de Estudio</span>
-        </div>
+    <!-- Back button -->
+    <a
+      href="/#proyectos"
+      class="absolute top-8 left-6 md:left-12 xl:left-72 inline-flex items-center gap-2 text-white/80 hover:text-white transition-colors duration-300 text-sm font-medium backdrop-blur-sm bg-white/10 px-4 py-2 rounded-full border border-white/20"
+    >
+      <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7" />
+      </svg>
+      Volver
+    </a>
 
-        <h1 class="text-6xl md:text-7xl font-black text-white mb-6 leading-tight tracking-tight">
-          {title}
-        </h1>
+    <!-- Hero content over banner -->
+    <div class="absolute bottom-0 left-0 right-0 px-6 pb-12 md:px-12 xl:px-72">
+      <span class="text-[#5b5bff] text-xs font-bold uppercase tracking-[0.2em] mb-3 block">Caso de Estudio</span>
+      <h1 class="text-5xl md:text-6xl font-black text-white mb-3 leading-tight">{title}</h1>
+      <p class="text-white/70 text-base max-w-xl leading-relaxed mb-6">{description}</p>
 
-        <p class="text-xl text-white/80 leading-relaxed mb-10 max-w-2xl">
-          {description}
-        </p>
-
-        <!-- Tech Stack - Better Spacing -->
-        {technologies && technologies.length > 0 && (
-          <div class="flex flex-wrap gap-3 mb-12">
-            {technologies.slice(0, 8).map((tech) => (
-              <span class="px-3.5 py-2 bg-white/8 backdrop-blur-sm text-white/90 rounded-lg text-sm font-medium border border-white/15 hover:border-[#5b5bff]/50 hover:bg-white/12 transition-all duration-300">
-                {tech}
-              </span>
-            ))}
-          </div>
+      <div class="flex gap-3 flex-wrap">
+        {website && (
+          <a
+            href={website}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="px-6 py-3 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl text-sm hover:shadow-[0_10px_40px_rgba(91,91,255,0.4)] transition-all duration-300 hover:scale-105"
+          >
+            Visitar sitio →
+          </a>
         )}
-
-        <!-- Metrics Box -->
-        {metrics && (
-          <div class="grid grid-cols-2 md:grid-cols-3 gap-6 p-6 md:p-8 bg-white/5 backdrop-blur-sm rounded-xl border border-white/10 mb-12">
-            {metrics.downloads && (
-              <div>
-                <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-2">Descargas</p>
-                <p class="text-xl md:text-2xl font-bold text-white">{metrics.downloads}</p>
-              </div>
-            )}
-            {metrics.rating && (
-              <div>
-                <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-2">Rating</p>
-                <p class="text-xl md:text-2xl font-bold text-white">{metrics.rating}</p>
-              </div>
-            )}
-            {metrics.reviews && (
-              <div>
-                <p class="text-white/60 text-xs font-semibold uppercase tracking-wider mb-2">Plataformas</p>
-                <p class="text-xl md:text-2xl font-bold text-white">{metrics.reviews}</p>
-              </div>
-            )}
-          </div>
+        {appStore && appStore !== "coming-soon" && (
+          <a href={appStore} target="_blank" rel="noopener noreferrer"
+            class="px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl text-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+            App Store
+          </a>
         )}
-
-        <!-- Primary CTA -->
-        <div class="flex gap-4 flex-wrap">
-          {website && (
-            <a
-              href={website}
-              target="_blank"
-              rel="noopener noreferrer"
-              class="px-8 py-4 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl hover:shadow-[0_20px_60px_rgba(91,91,255,0.3)] transition-all duration-300 hover:scale-105"
-            >
-              Visitar sitio web →
-            </a>
-          )}
-          <div class="flex gap-3">
-            {appStore && appStore !== "coming-soon" && (
-              <a
-                href={appStore}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-6 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
-              >
-                App Store
-              </a>
-            )}
-            {googlePlay && googlePlay !== "coming-soon" && (
-              <a
-                href={googlePlay}
-                target="_blank"
-                rel="noopener noreferrer"
-                class="px-6 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl border border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300"
-              >
-                Google Play
-              </a>
-            )}
-          </div>
-        </div>
-      </div>
-
-      <!-- Hero Images Grid -->
-      <div class="grid md:grid-cols-1 gap-8 mb-24 auto-rows-max">
-        {image_desktop && (
-          <a href={website || "#"} class="group block" transition:name={`project-hero-${title}`}>
-            <div class="relative overflow-hidden rounded-2xl border border-white/10 hover:border-[#5b5bff]/50 transition-all duration-500 shadow-2xl h-96 bg-black/50 flex items-center justify-center">
-              <img
-                src={image_desktop}
-                alt={`${title} - Sitio Web`}
-                class="w-full h-full object-contain group-hover:scale-105 transition-transform duration-700"
-                loading="eager"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-start p-6">
-                <div>
-                  <p class="text-white font-semibold text-lg">Explorar sitio web</p>
-                  <p class="text-white/70 text-sm">Haz clic para ver el proyecto en vivo →</p>
-                </div>
-              </div>
-            </div>
-            <p class="text-white/60 text-sm font-medium mt-4">Sitio Web Responsive</p>
+        {googlePlay && googlePlay !== "coming-soon" && (
+          <a href={googlePlay} target="_blank" rel="noopener noreferrer"
+            class="px-6 py-3 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-xl text-sm border border-white/20 hover:bg-white/20 transition-all duration-300">
+            Google Play
           </a>
         )}
       </div>
     </div>
   </section>
 
-  <!-- Content Section -->
-  <section class="relative px-6 py-24 md:px-12 xl:px-72 border-t border-white/10">
-    <div class="max-w-4xl prose prose-invert prose-lg mb-24">
-      <Content />
+  <!-- ─── TECH BADGES + MÉTRICAS ─── -->
+  <section class="px-6 py-12 md:px-12 xl:px-72 border-b border-white/10">
+    <div class="flex flex-col md:flex-row md:items-center gap-6">
+      <div class="flex-1">
+        <p class="text-white/50 text-xs font-semibold uppercase tracking-widest mb-3">Stack tecnológico</p>
+        <div class="flex flex-wrap gap-2">
+          {technologies && technologies.map((tech) => (
+            <span class="px-3 py-1.5 bg-[#5b5bff]/10 text-[#8b8bff] rounded-lg text-xs font-semibold border border-[#5b5bff]/20 uppercase tracking-wide">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+      {metrics && (
+        <div class="flex gap-8 text-center">
+          <div>
+            <p class="text-xl font-black text-white">4.8★</p>
+            <p class="text-white/50 text-xs">App Store</p>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <p class="text-xl font-black text-white">iOS+Android</p>
+            <p class="text-white/50 text-xs">Plataformas</p>
+          </div>
+          <div class="w-px bg-white/10"></div>
+          <div>
+            <p class="text-xl font-black text-white">0%</p>
+            <p class="text-white/50 text-xs">Crash rate</p>
+          </div>
+        </div>
+      )}
     </div>
   </section>
 
-  <!-- CTA Section -->
-  <section class="relative px-6 py-24 md:px-12 xl:px-72 border-t border-white/10 bg-gradient-to-b from-white/5 to-transparent">
-    <div class="max-w-2xl mx-auto text-center">
-      <h3 class="text-4xl md:text-5xl font-black text-white mb-6">¿Listo para tu próximo proyecto?</h3>
-      <p class="text-white/70 text-lg mb-12 leading-relaxed">
-        Conversemos sobre tu idea. Podemos ayudarte a construir algo extraordinario que impacte a tus usuarios.
-      </p>
+  <!-- ─── EL PROBLEMA ─── -->
+  <section class="px-6 py-16 md:px-12 xl:px-72">
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div>
+        <p class="text-[#5b5bff] text-xs font-bold uppercase tracking-[0.2em] mb-4">El Problema</p>
+        <h2 class="text-3xl font-black text-white mb-4 leading-tight">Las apps de hábitos eran demasiado complicadas</h2>
+        <p class="text-white/70 text-sm leading-relaxed">
+          Dayloop nació de una pregunta simple: <strong class="text-white">"¿Qué es lo mínimo que necesito para rastrear un hábito?"</strong> La respuesta definió todo el producto.
+        </p>
+      </div>
+      <div class="flex flex-col gap-3">
+        {[
+          "Interfaces sobrecargadas que intimidan",
+          "Demasiadas opciones innecesarias",
+          "Requieren conexión constante a internet",
+          "Pérdida de datos si no sincronizas",
+        ].map((pain) => (
+          <div class="flex items-start gap-3 p-4 bg-red-500/5 border border-red-500/15 rounded-xl">
+            <span class="text-red-400 mt-0.5 flex-shrink-0">✕</span>
+            <p class="text-white/80 text-sm">{pain}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FEATURES CARDS ─── -->
+  <section class="px-6 py-16 md:px-12 xl:px-72 border-t border-white/10">
+    <div class="mb-10">
+      <p class="text-[#5b5bff] text-xs font-bold uppercase tracking-[0.2em] mb-3">La Solución</p>
+      <h2 class="text-3xl font-black text-white">Simplicidad + Potencia</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {features.map((f) => (
+        <div class="group p-6 bg-white/4 hover:bg-white/8 border border-white/10 hover:border-[#5b5bff]/40 rounded-2xl transition-all duration-300 cursor-default">
+          <div class="text-3xl mb-4">{f.icon}</div>
+          <h3 class="text-white font-bold text-sm mb-2">{f.title}</h3>
+          <p class="text-white/60 text-xs leading-relaxed">{f.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── STACK TÉCNICO ─── -->
+  <section class="px-6 py-16 md:px-12 xl:px-72 border-t border-white/10">
+    <div class="mb-10">
+      <p class="text-[#5b5bff] text-xs font-bold uppercase tracking-[0.2em] mb-3">Arquitectura</p>
+      <h2 class="text-3xl font-black text-white">Stack Técnico</h2>
+    </div>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {stack.map((s) => (
+        <div class="p-5 bg-white/4 border border-white/10 rounded-2xl">
+          <p class="text-[#5b5bff] text-xs font-bold uppercase tracking-widest mb-3">{s.category}</p>
+          <ul class="flex flex-col gap-2">
+            {s.items.map((item) => (
+              <li class="flex items-center gap-2 text-white/80 text-sm">
+                <span class="w-1.5 h-1.5 bg-[#5b5bff] rounded-full flex-shrink-0"></span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── CTA ─── -->
+  <section class="px-6 py-20 md:px-12 xl:px-72 border-t border-white/10">
+    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-8 p-8 md:p-12 bg-gradient-to-r from-[#5b5bff]/10 to-[#6366f1]/10 border border-[#5b5bff]/20 rounded-2xl">
+      <div>
+        <h3 class="text-2xl md:text-3xl font-black text-white mb-2">¿Listo para tu proyecto?</h3>
+        <p class="text-white/60 text-sm">Cuéntanos tu idea y construimos algo extraordinario juntos.</p>
+      </div>
       <a
         href="/#contacto"
-        class="inline-flex items-center gap-2 px-8 py-4 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl hover:shadow-[0_20px_60px_rgba(91,91,255,0.3)] transition-all duration-300 hover:scale-105"
+        class="flex-shrink-0 px-8 py-4 bg-gradient-to-r from-[#5b5bff] to-[#6366f1] text-white font-bold rounded-xl text-sm hover:shadow-[0_10px_40px_rgba(91,91,255,0.4)] transition-all duration-300 hover:scale-105 text-center"
       >
         Solicitar presupuesto →
       </a>
     </div>
   </section>
+
 </Layout>
 
 <style is:global>
-  .prose {
-    --prose-body: rgb(255 255 255 / 0.8);
-    --prose-headings: rgb(255 255 255);
-    --prose-lead: rgb(255 255 255 / 0.7);
-    --prose-links: rgb(91 91 255);
-    --prose-strong: rgb(255 255 255);
-    --prose-code: rgb(91 91 255);
-    --prose-hr: rgb(255 255 255 / 0.1);
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
   }
-
-  .prose strong {
-    color: rgb(255 255 255);
-    font-weight: 700;
-  }
-
-  .prose a {
-    color: rgb(91 91 255);
-    text-decoration: underline;
-    transition: color 0.3s;
-  }
-
-  .prose a:hover {
-    color: rgb(255 255 255);
-  }
-
-  .prose p {
-    margin-top: 1.2em;
-    margin-bottom: 1.2em;
-    line-height: 1.85;
-    font-size: 1.1em;
-    color: rgb(255 255 255 / 0.85);
-  }
-
-  .prose h2 {
-    margin-top: 3em;
-    margin-bottom: 1.2em;
-    font-size: 2.5em;
-    font-weight: 800;
-    letter-spacing: -0.03em;
-    color: rgb(255 255 255);
-    padding-bottom: 0.5em;
-    border-bottom: 2px solid rgb(91 91 255 / 0.2);
-  }
-
-  .prose h3 {
-    margin-top: 2em;
-    margin-bottom: 1em;
-    font-size: 1.5em;
-    font-weight: 700;
-    color: rgb(255 255 255);
-  }
-
-  .prose strong {
-    color: rgb(255 255 255);
-    font-weight: 700;
-  }
-
-  .prose ul,
-  .prose ol {
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-    padding-left: 2.2em;
-  }
-
-  .prose li {
-    margin-top: 0.8em;
-    margin-bottom: 0.8em;
-    line-height: 1.75;
-    color: rgb(255 255 255 / 0.85);
-  }
-
-  .prose li strong {
-    color: rgb(91 91 255);
-  }
-
-  .prose code {
-    background-color: rgb(91 91 255 / 0.15);
-    padding: 0.3em 0.6em;
-    border-radius: 0.4em;
-    color: rgb(91 91 255);
-    font-size: 0.95em;
-    border: 1px solid rgb(91 91 255 / 0.25);
-  }
-
-  .prose pre {
-    background-color: rgb(15 23 42 / 0.95);
-    border: 1px solid rgb(255 255 255 / 0.1);
-    border-radius: 1em;
-    padding: 2em;
-    overflow-x: auto;
-    line-height: 1.6;
-  }
-
-  .prose blockquote {
-    border-left: 4px solid rgb(91 91 255);
-    padding-left: 1.5em;
-    color: rgb(255 255 255 / 0.85);
-    font-style: italic;
-    margin-top: 1.5em;
-    margin-bottom: 1.5em;
-  }
-
-  @keyframes pulse {
-    0%, 100% {
-      opacity: 0.1;
-    }
-    50% {
-      opacity: 0.15;
-    }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
   }
 </style>
