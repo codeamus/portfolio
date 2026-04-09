@@ -19,6 +19,7 @@ const {
   technologies,
   metrics,
   image_desktop,
+  appScreenshots,
 } = data;
 
 const metaTitle = data.metaTitle || `${title} | CODEAMUS`;
@@ -211,6 +212,35 @@ const stack = [
       ))}
     </div>
   </section>
+
+  <!-- ─── SCREENSHOTS CAROUSEL ─── -->
+  {appScreenshots && appScreenshots.length > 0 && (
+    <section class="py-16 border-t border-white/10">
+      <div class="px-6 md:px-12 xl:px-72 mb-8">
+        <p class="text-[#5b5bff] text-xs font-bold uppercase tracking-[0.2em] mb-3">Galería</p>
+        <h2 class="text-3xl font-black text-white">Pantallas de la App</h2>
+      </div>
+      <div class="px-6 md:px-12 xl:px-72 overflow-x-auto scrollbar-hide">
+        <div class="flex gap-5 pb-4" style="width: max-content;">
+          {appScreenshots.map((screenshot, index) => (
+            <div class="flex-shrink-0 w-64 group">
+              <div class="relative h-[520px] rounded-2xl overflow-hidden border border-white/10 hover:border-[#5b5bff]/50 transition-all duration-500 shadow-xl hover:shadow-[0_20px_50px_rgba(91,91,255,0.2)]">
+                <img
+                  src={screenshot}
+                  alt={`Pantalla ${index + 1}`}
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div class="px-6 md:px-12 xl:px-72 mt-4">
+        <p class="text-white/40 text-xs">← Desliza para explorar →</p>
+      </div>
+    </section>
+  )}
 
   <!-- ─── CTA ─── -->
   <section class="px-6 py-20 md:px-12 xl:px-72 border-t border-white/10">
