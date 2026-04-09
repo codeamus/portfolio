@@ -137,35 +137,25 @@ const metaDescription =
       </div>
 
       <!-- Hero Images Grid -->
-      <div class="grid md:grid-cols-2 gap-8 mb-24 auto-rows-max">
+      <div class="grid md:grid-cols-1 gap-8 mb-24 auto-rows-max">
         {image_desktop && (
-          <div class="group">
+          <a href={website || "#"} class="group block" transition:name={`project-hero-${title}`}>
             <div class="relative overflow-hidden rounded-2xl border border-white/10 hover:border-[#5b5bff]/50 transition-all duration-500 shadow-2xl h-96">
               <img
                 src={image_desktop}
-                alt={`${title} - Web Desktop`}
+                alt={`${title} - Sitio Web`}
                 class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 loading="eager"
               />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+              <div class="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex items-end justify-start p-6">
+                <div>
+                  <p class="text-white font-semibold text-lg">Explorar sitio web</p>
+                  <p class="text-white/70 text-sm">Haz clic para ver el proyecto en vivo →</p>
+                </div>
+              </div>
             </div>
-            <p class="text-white/60 text-sm font-medium mt-4">Sitio Web</p>
-          </div>
-        )}
-
-        {image_mobile && (
-          <div class="group">
-            <div class="relative overflow-hidden rounded-2xl border border-white/10 hover:border-[#5b5bff]/50 transition-all duration-500 shadow-2xl h-96">
-              <img
-                src={image_mobile}
-                alt={`${title} - App Mobile`}
-                class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                loading="eager"
-              />
-              <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            </div>
-            <p class="text-white/60 text-sm font-medium mt-4">Aplicación Móvil</p>
-          </div>
+            <p class="text-white/60 text-sm font-medium mt-4">Sitio Web Responsive</p>
+          </a>
         )}
       </div>
     </div>
