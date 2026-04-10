@@ -3,7 +3,7 @@
 // Motion Intensity: HIGH
 import IconLinkedin from "@assets/icons/linkedin-white.astro";
 import Logo from "@assets/img/logos/logo.webp";
-import { WHATSAPP_URL } from "@utils/const";
+import { WHATSAPP_MESSAGES } from "@utils/const";
 
 const SOCIAL_LINKS = [
   {
@@ -60,7 +60,7 @@ const NAV_LINKS = [
   <div class="flex items-center gap-3 md:gap-6">
     <!-- CTA Button -->
     <a
-      href={WHATSAPP_URL}
+      href={WHATSAPP_MESSAGES.general}
       target="_blank"
       rel="noopener noreferrer"
       class="hidden items-center gap-2 rounded-lg bg-gradient-to-r from-[#5b5bff] to-[#6366f1] px-6 py-2 text-xs font-semibold uppercase tracking-wide text-white shadow-glow-blue transition-all duration-300 hover:shadow-[0_0_30px_rgba(91,91,255,0.4)] hover:scale-105 sm:inline-flex btn-ripple"
@@ -87,17 +87,18 @@ const NAV_LINKS = [
       }
     </ul>
 
-    <!-- Mobile Menu Toggle (future) -->
+    <!-- Mobile Menu Toggle -->
     <button
       class="md:hidden flex items-center justify-center rounded-lg p-2 text-white/70 hover:bg-[#5b5bff]/20 transition-colors"
       aria-label="Toggle menu"
       id="mobile-menu-toggle"
     >
       <svg
-        class="h-6 w-6"
+        class="h-6 w-6 transition-transform duration-300"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
+        id="hamburger-icon"
       >
         <path
           stroke-linecap="round"
@@ -109,6 +110,33 @@ const NAV_LINKS = [
     </button>
   </div>
 </nav>
+
+<!-- Mobile Menu -->
+<div
+  id="mobile-menu"
+  class="hidden fixed top-16 left-0 right-0 bg-[#0f172a]/98 border-b border-white/10 backdrop-blur-md md:hidden z-40"
+>
+  <div class="flex flex-col items-start px-6 py-4 space-y-2">
+    {
+      NAV_LINKS.map(({ label, href }) => (
+        <a
+          href={href}
+          class="w-full px-4 py-2 text-sm font-medium text-white/80 hover:text-white hover:bg-[#5b5bff]/10 rounded-lg transition-all duration-300"
+        >
+          {label}
+        </a>
+      ))
+    }
+    <a
+      href={WHATSAPP_MESSAGES.general}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="w-full px-4 py-2 mt-2 text-sm font-semibold uppercase text-white bg-gradient-to-r from-[#5b5bff] to-[#6366f1] rounded-lg hover:shadow-[0_0_20px_rgba(91,91,255,0.3)] transition-all duration-300 text-center"
+    >
+      💬 Cotizar
+    </a>
+  </div>
+</div>
 
 <style>
   /* Hover elevation effect */
@@ -146,11 +174,37 @@ const NAV_LINKS = [
 </style>
 
 <script>
-  // Mobile menu toggle
+  // Mobile menu toggle y navegación
   const toggle = document.getElementById('mobile-menu-toggle');
   const mobileMenu = document.getElementById('mobile-menu');
+  const hamburgerIcon = document.getElementById('hamburger-icon');
+  const mobileLinks = mobileMenu?.querySelectorAll('a');
 
+  // Toggle menu
   toggle?.addEventListener('click', () => {
     mobileMenu?.classList.toggle('hidden');
+    hamburgerIcon?.classList.toggle('rotate-90');
+  });
+
+  // Cerrar menú cuando haces click en un enlace
+  mobileLinks?.forEach(link => {
+    link.addEventListener('click', () => {
+      mobileMenu?.classList.add('hidden');
+      hamburgerIcon?.classList.remove('rotate-90');
+    });
+  });
+
+  // Cerrar menú al navegar (también en caso de Astro transitions)
+  document.addEventListener('astro:before-preparation', () => {
+    mobileMenu?.classList.add('hidden');
+    hamburgerIcon?.classList.remove('rotate-90');
+  });
+
+  // Cerrar menú cuando presionas escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      mobileMenu?.classList.add('hidden');
+      hamburgerIcon?.classList.remove('rotate-90');
+    }
   });
 </script>
