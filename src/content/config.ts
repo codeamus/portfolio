@@ -26,4 +26,21 @@ const projectsCollection = defineCollection({
   }),
 });
 
-export const collections = { projectsCollection };
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string(),
+    author: z.string().default('CODEAMUS'),
+    pubDate: z.coerce.date(),
+    updatedDate: z.coerce.date().optional(),
+    heroImage: z.string().optional(),
+    category: z.enum(['web', 'mobile', 'seo', 'tools']).default('web'),
+    keywords: z.array(z.string()),
+  }),
+});
+
+export const collections = {
+  projectsCollection,
+  blog: blogCollection,
+};
