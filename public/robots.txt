@@ -1,34 +1,37 @@
 # Robots.txt for CODEAMUS
-# Optimize crawling and indexing
+# SEO Optimized - Allow all crawling
 
 User-agent: *
 Allow: /
-Disallow: /admin
-Disallow: /*.json
-Disallow: /404
-Disallow: /.git/
+Disallow: /admin/
 Disallow: /.env
+Disallow: /.git/
+Disallow: /node_modules/
 
-# Allow crawling of specific areas
-Allow: /proyectos/
-Allow: /servicios/
-Allow: /about/
+# Priority crawling for important sections
+Allow: /blog/
+Allow: /projects/
 
-# Sitemaps
+# Sitemaps (Google crawls these)
 Sitemap: https://codeamus.dev/sitemap.xml
-Sitemap: https://codeamus.dev/sitemap-projects.xml
 
-# Crawl delay (optional - respects server load)
-Crawl-delay: 1
-
-# Request rate (Google bot)
-Request-rate: 1/1
-
-# Good bot policies
+# Optimize for Google
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 0
+Request-rate: unlimited
 
+# Optimize for Bing
 User-agent: Bingbot
 Allow: /
 Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Crawl-delay: 10
+
+User-agent: SemrushBot
+Crawl-delay: 10

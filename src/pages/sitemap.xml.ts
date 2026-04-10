@@ -1,15 +1,13 @@
 import { getCollection } from 'astro:content';
 
-// Get all projects for dynamic URLs
+// Get all projects and blog posts
 const allProjects = await getCollection('projects');
+const allBlogPosts = await getCollection('blog');
 
-// Main pages
+// Main pages with proper priorities
 const pages = [
-  { url: '', priority: 1.0, changefreq: 'weekly' },
-  { url: '#servicios', priority: 0.9, changefreq: 'monthly' },
-  { url: '#proyectos', priority: 0.9, changefreq: 'weekly' },
-  { url: '#como-trabajo', priority: 0.7, changefreq: 'monthly' },
-  { url: '#contacto', priority: 0.8, changefreq: 'monthly' },
+  { url: '/', priority: 1.0, changefreq: 'weekly' },
+  { url: '/blog', priority: 0.9, changefreq: 'weekly' },
 ];
 
 // Generate sitemap XML
@@ -30,10 +28,21 @@ const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
     .map(
       (project) => `
   <url>
-    <loc>https://codeamus.dev/projects/${project.id}</loc>
+    <loc>https://codeamus.dev/projects/${project.slug}</loc>
     <priority>0.8</priority>
     <changefreq>monthly</changefreq>
     <lastmod>${new Date().toISOString().split('T')[0]}</lastmod>
+  </url>`
+    )
+    .join('')}
+  ${allBlogPosts
+    .map(
+      (post) => `
+  <url>
+    <loc>https://codeamus.dev/blog/${post.slug}</loc>
+    <priority>0.7</priority>
+    <changefreq>monthly</changefreq>
+    <lastmod>${post.data.updatedDate ? post.data.updatedDate.toISOString().split('T')[0] : post.data.pubDate.toISOString().split('T')[0]}</lastmod>
   </url>`
     )
     .join('')}

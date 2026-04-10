@@ -57,20 +57,51 @@ const breadcrumbSchema = {
     {
       "@type": "ListItem",
       "position": 2,
-      "name": "Servicios",
-      "item": "https://codeamus.dev#servicios"
+      "name": "Blog",
+      "item": "https://codeamus.dev/blog"
     },
     {
       "@type": "ListItem",
       "position": 3,
       "name": "Proyectos",
-      "item": "https://codeamus.dev#proyectos"
+      "item": "https://codeamus.dev/projects"
     },
     {
       "@type": "ListItem",
       "position": 4,
       "name": "Contacto",
-      "item": "https://codeamus.dev#contacto"
+      "item": "https://codeamus.dev/#contacto"
+    }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "¿Cuánto cuesta desarrollar una app móvil?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Los costos varían según el tipo de app. Apps simples: $5,000-$8,000. Apps medianas: $15,000-$25,000. Apps complejas: $25,000+. Depende del alcance, features y plataforma."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Cuál es tu stack tecnológico?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Usamos Astro + React para web, y React Native / Flutter para apps móviles. Tailwind CSS para estilos y bases de datos modernas."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "¿Haces SEO?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sí, incluimos SEO técnico en todos los proyectos: Core Web Vitals optimizados, meta tags, schema markup, y structure data."
+      }
     }
   ]
 };
@@ -84,3 +115,6 @@ const breadcrumbSchema = {
 
 <!-- Breadcrumb Schema -->
 <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
+<!-- FAQ Schema -->
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
