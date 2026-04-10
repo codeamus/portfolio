@@ -6,8 +6,8 @@
 // Formspree Configuration
 export const FORMSPREE_CONFIG = {
   // Update this with your actual Formspree ID
-  formId: 'xyzabc123', // Replace with your Formspree form ID
-  endpoint: 'https://formspree.io/f/xyzabc123', // Replace with your endpoint
+  formId: 'mreowrjr', // Replace with your Formspree form ID
+  endpoint: 'https://formspree.io/f/mreowrjr', // Replace with your endpoint
 };
 
 // Google Analytics Configuration (GA4)
