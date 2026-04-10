@@ -11,6 +11,8 @@ const SERVICES = [
     description: "Páginas de conversión optimizadas para captar clientes",
     priceMin: "$100.000",
     priceMax: "$200.000",
+    label: "Proyecto Rápido",
+    labelColor: "bg-green-500/20 text-green-300 border-green-400/30",
     features: [
       "Single page con scroll",
       "Diseño moderno y responsivo",
@@ -28,6 +30,8 @@ const SERVICES = [
     description: "Webs completos con múltiples secciones, tiendas online y funcionalidades avanzadas",
     priceMin: "$300.000",
     priceMax: "$600.000",
+    label: "Proyecto Mediano",
+    labelColor: "bg-blue-500/20 text-blue-300 border-blue-400/30",
     features: [
       "5-15 páginas personalizadas",
       "Blog, portafolio o tienda online",
@@ -44,6 +48,8 @@ const SERVICES = [
     description: "Aplicaciones iOS y Android con React Native + Expo",
     priceMin: "$2.000.000",
     priceMax: "$5.000.000",
+    label: "Proyecto Complejo",
+    labelColor: "bg-purple-500/20 text-purple-300 border-purple-400/30",
     features: [
       "iOS + Android (una codebase)",
       "Interfaz moderna y fluida",
@@ -98,6 +104,11 @@ const SERVICES = [
                 Popular
               </div>
             )}
+
+            {/* Label Badge */}
+            <div class={`inline-block px-2.5 py-1 rounded-md text-xs font-semibold uppercase tracking-wider mb-3 border ${service.labelColor}`}>
+              {service.label}
+            </div>
 
             {/* Icon + Title */}
             <div class="flex items-center gap-3 mb-3">
