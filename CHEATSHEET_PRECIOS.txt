@@ -1,0 +1,132 @@
+═══════════════════════════════════════════════════════════════════════════════
+                      💰 CODEAMUS - TABLA DE PRECIOS 2026
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🌐 LANDING PAGES                                                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ DESDE:        $100,000 CLP                                                  │
+│ HASTA:        $200,000 CLP                                                  │
+│ TIEMPO:       5-7 días                                                      │
+│                                                                              │
+│ QUÉ INCLUYE:                                                                │
+│   ✓ Single page (1 página)                                                  │
+│   ✓ Diseño moderno y responsivo                                            │
+│   ✓ Formulario de contacto                                                  │
+│   ✓ SEO técnico básico                                                      │
+│   ✓ Optimización para conversiones                                          │
+│   ✓ Testing y deploy                                                        │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 🏢 SITIOS WEB + E-COMMERCE                                                 │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ DESDE:        $300,000 CLP                                                  │
+│ HASTA:        $600,000 CLP                                                  │
+│ TIEMPO:       2-3 semanas                                                   │
+│                                                                              │
+│ QUÉ INCLUYE:                                                                │
+│   ✓ 5-15 páginas personalizadas                                            │
+│   ✓ Blog integrado o tienda online                                         │
+│   ✓ Diseño consistente y premium                                           │
+│   ✓ SEO técnico avanzado                                                    │
+│   ✓ Admin panel (edita tú mismo)                                           │
+│   ✓ Formulario de contacto avanzado                                        │
+│   ✓ Google Analytics 4                                                      │
+│   ✓ Certificado SSL + Dominio .cl + Hosting (1 año)                       │
+│                                                                              │
+│ EXTRAS (aumentan precio):                                                   │
+│   + $50K-$100K:  Pasarela de pago Webpay                                   │
+│   + $50K-$100K:  Integración CRM                                           │
+│   + $50K:        Multi-idioma (ESP/ENG)                                    │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│ 📱 APPS MÓVILES (iOS + Android)                                             │
+├─────────────────────────────────────────────────────────────────────────────┤
+│ DESDE:        $2,000,000 CLP                                                │
+│ HASTA:        $5,000,000 CLP                                                │
+│ TIEMPO:       3-5 semanas                                                   │
+│                                                                              │
+│ QUÉ INCLUYE:                                                                │
+│   ✓ iOS + Android (React Native/Expo)                                      │
+│   ✓ Diseño UX/UI moderno                                                    │
+│   ✓ 5-10 pantallas principales                                            │
+│   ✓ Autenticación (email/password)                                         │
+│   ✓ Integración con APIs                                                    │
+│   ✓ Push notifications                                                      │
+│   ✓ Base de datos (Firebase)                                                │
+│   ✓ QA testing completo                                                     │
+│   ✓ Publicación App Store + Play Store                                     │
+│                                                                              │
+│ EXTRAS (aumentan precio):                                                   │
+│   + $300K-$500K:  Integración de pagos (Stripe)                           │
+│   + $200K-$400K:  Geolocalización avanzada                                 │
+│   + $150K-$300K:  Cámara/galería nativa                                   │
+│   + $200K:        Push notifications avanzadas                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+═══════════════════════════════════════════════════════════════════════════════
+                             📊 COMPARATIVA RÁPIDA
+═══════════════════════════════════════════════════════════════════════════════
+
+SERVICIO          CODEAMUS      MERCADO        % AHORRO
+──────────────────────────────────────────────────────────
+Landing Page      $150K         $350K-$800K    -75%
+Sitio Web         $450K         $1.2M-$1.8M    -70%
+App Móvil         $3.5M         $5M-$12M       -65%
+
+═══════════════════════════════════════════════════════════════════════════════
+                          💡 POR QUÉ TAN ACCESIBLES
+═══════════════════════════════════════════════════════════════════════════════
+
+✓ Tecnología moderna (Astro, React Native, Expo)
+✓ Uso de IA para acelerar desarrollo
+✓ Procesos optimizados
+✓ Sin inflación artificial
+✓ Sin overhead administrativo
+
+Pagas exactamente por el desarrollo.
+Nada más.
+
+═══════════════════════════════════════════════════════════════════════════════
+                            💬 RESPUESTAS COMUNES
+═══════════════════════════════════════════════════════════════════════════════
+
+P: ¿Por qué tan barato?
+R: No somos los más baratos. Somos los más honestos.
+   Usamos tecnología moderna y procesos eficientes.
+   No inflamos precios artificialmente.
+
+P: ¿Incluye X?
+R: Sí, incluimos TODO lo importante:
+   ✓ Diseño profesional
+   ✓ SEO técnico
+   ✓ Testing
+   ✓ Deploy
+   ✓ Soporte 1 mes
+
+P: ¿Puedo pagar menos?
+R: Sí, options:
+   1. Reducir scope
+   2. Plazo flexible
+   3. Solo desarrollo (tú haces deploy)
+
+═══════════════════════════════════════════════════════════════════════════════
+                           📞 CONTACTO Y PRÓXIMOS PASOS
+═══════════════════════════════════════════════════════════════════════════════
+
+¿Interesado?
+
+1. Completa el formulario de contacto
+2. Hablamos de tu proyecto en detalle
+3. Te doy presupuesto personalizado
+4. ¡Comenzamos!
+
+Email:   contact@codeamus.dev
+WhatsApp: +56 9 XXXX XXXX
+Web:     https://codeamus.dev
+
+═══════════════════════════════════════════════════════════════════════════════
+Versión: Q2 2026 | Válido por 6 meses | Precios sin IVA
+═══════════════════════════════════════════════════════════════════════════════
