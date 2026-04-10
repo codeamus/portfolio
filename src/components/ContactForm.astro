@@ -2,6 +2,7 @@
 // Contact Form - Taste-Skill Premium Edition
 // Motion Intensity: HIGH
 // Validación con Zod
+import { WHATSAPP_MESSAGES } from "@utils/const";
 ---
 
 <section
@@ -182,7 +183,7 @@
     <div class="mt-8 text-center">
       <p class="text-white/60 mb-4">¿Prefieres contactarme directamente?</p>
       <a
-        href="https://wa.me/56985284259?text=Hola%20Matías,%20quiero%20hablarte%20sobre%20mi%20proyecto"
+        href={WHATSAPP_MESSAGES.general}
         target="_blank"
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 px-6 py-3 rounded-lg border-2 border-[#5b5bff] text-[#5b5bff] font-semibold hover:bg-[#5b5bff]/10 transition-all duration-300"
