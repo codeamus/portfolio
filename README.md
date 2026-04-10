@@ -1,54 +1,192 @@
-# Astro Starter Kit: Basics
+# 🚀 CODEAMUS - Desarrollo Web y Apps
 
-```sh
-npm create astro@latest -- --template basics
+**Sitio profesional de freelancer especializado en web y apps móviles**
+
+🌐 **https://codeamus.dev**  
+🔗 **GitHub**: https://github.com/codeamus  
+💼 **Email**: contact@codeamus.dev
+
+---
+
+## 📚 DOCUMENTACIÓN
+
+**👉 [IR A DOCUMENTACIÓN CENTRALIZADA](/docs/README.md)**
+
+Toda la documentación está organizada en `/docs/`. Lee el índice principal para encontrar lo que necesitas.
+
+---
+
+## ⚡ Inicio Rápido
+
+```bash
+# Instalar
+npm install
+
+# Desarrollo (con hot reload)
+npm run dev
+
+# Build para producción
+npm run build
+
+# Ver build local
+npm run preview
 ```
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Abre: **http://localhost:4321**
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+---
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+## 🎯 Qué Hacemos
 
-## 🚀 Project Structure
+- 🌐 **Landing Pages** ($100K-$200K CLP, 5-7 días)
+- 🏢 **Sitios Web Profesionales** ($300K-$600K CLP, 2-3 semanas)
+- 📱 **Apps Móviles iOS/Android** ($2M-$5M CLP, 3-5 semanas)
 
-Inside of your Astro project, you'll see the following folders and files:
+Todos con **SEO optimizado**, **velocidad garantizada** y **soporte incluido**.
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── components/
-│   │   └── Card.astro
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
+---
+
+## 🛠️ Tech Stack
+
+- **Framework**: Astro 5.16.4 (static generation)
+- **Styling**: Tailwind CSS 3.4.1
+- **Hosting**: Vercel (auto-deploy)
+- **Email**: Formspree
+- **Analytics**: Google Analytics 4 + Vercel
+- **CMS**: Content Collections (Astro)
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+/docs                # 📚 Documentación (IMPORTANTE)
+/src
+  /components        # Componentes Astro/React
+  /content          # Blog posts y proyectos
+  /pages            # Rutas web
+  /utils            # Funciones helper
+  /styles           # Estilos globales
+/public             # Assets estáticos
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+---
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+## 🚀 Deploy
 
-Any static assets, like images, can be placed in the `public/` directory.
+**Automático**: Cada push a `main` despliega a https://codeamus.dev
 
-## 🧞 Commands
+```bash
+git add .
+git commit -m "cambios"
+git push origin main
+# Vercel deploya automáticamente en 2-5 minutos
+```
 
-All commands are run from the root of the project, from a terminal:
+Ver detalles en: [`/docs/setup/DEPLOY.md`](/docs/setup/DEPLOY.md)
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+---
 
-## 👀 Want to learn more?
+## 📖 Guías Principales
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+### Para desarrolladores
+- [Setup inicial](/docs/setup/README.md)
+- [Estructura del proyecto](/docs/guias/ESTRUCTURA.md)
+- [Cómo agregar artículos al blog](/docs/guias/BLOG.md)
+- [SEO y optimización](/docs/guias/SEO.md)
+
+### Para resolver problemas
+- [Troubleshooting general](/docs/troubleshooting/README.md)
+- [Problemas de email](/docs/troubleshooting/EMAILS.md)
+- [Errores de linter](/docs/troubleshooting/LINTER.md)
+
+### Información comercial
+- [Precios y tarifas](/docs/precios/PRECIOS.md)
+- [Estrategia de precios](/docs/precios/ESTRATEGIA.md)
+- [Investigación de mercado](/docs/precios/MERCADO.md)
+
+---
+
+## 🔄 Flujo de Trabajo
+
+```
+Cambios locales → git commit → git push → Vercel deploy → ✅ Producción
+```
+
+No hay procesos manuales. Todo es automático.
+
+---
+
+## 💡 Características Principales
+
+✅ **SEO Optimizado**
+- Robots.txt + Sitemap dinámico
+- Meta tags + Open Graph
+- Schema.org markup
+- Google Search Console integrado
+
+✅ **Blog Integrado**
+- 5 artículos SEO
+- 2000+ palabras cada uno
+- Keywords targetadas
+
+✅ **Formulario de Contacto**
+- Integrado con Formspree
+- Emails a contact@codeamus.dev
+- Validación en cliente
+- 50 emails/mes gratis
+
+✅ **Precios Claros**
+- Transparencia total
+- Sin inflación
+- Basados en tiempo real
+
+✅ **Navegación Móvil**
+- Responsive 100%
+- Menú móvil funcional
+- Optimizado para conversión
+
+---
+
+## 📊 Última Actualización
+
+- **Fecha**: Abril 2026
+- **Cambios**: Reorganización de documentación, correción de navegación móvil, actualización de GitHub URL
+- **Status**: ✅ Producción
+
+---
+
+## 🔗 Enlaces Importantes
+
+| Recurso | URL |
+|---------|-----|
+| Sitio web | https://codeamus.dev |
+| GitHub | https://github.com/codeamus |
+| Documentación | `/docs/README.md` |
+| Vercel Dashboard | https://vercel.com/dashboard |
+| Google Search Console | https://search.google.com/search-console |
+
+---
+
+## 🆘 Necesito Ayuda
+
+1. **Primero**: Revisa [Documentación](/docs/README.md)
+2. **Luego**: Busca en [Troubleshooting](/docs/troubleshooting/README.md)
+3. **Contacto**: contact@codeamus.dev
+
+---
+
+## 📝 Para Agregar Contenido
+
+- **Blog**: Lee [`/docs/guias/BLOG.md`](/docs/guias/BLOG.md)
+- **Proyectos**: Lee [`/docs/guias/PROYECTOS.md`](/docs/guias/PROYECTOS.md)
+- **Precios**: Lee [`/docs/precios/ESTRATEGIA.md`](/docs/precios/ESTRATEGIA.md)
+
+---
+
+**Mantenedor**: Matías (matias04041994@gmail.com)  
+**Licencia**: Privado
+
+---
+
+**→ [Ir a documentación completa](/docs/README.md)**
