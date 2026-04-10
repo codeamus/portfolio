@@ -9,40 +9,49 @@ const SERVICES = [
     icon: "🌐",
     name: "Landing Pages",
     description: "Páginas de conversión optimizadas para captar clientes",
+    priceMin: "$100.000",
+    priceMax: "$200.000",
     features: [
+      "Single page con scroll",
       "Diseño moderno y responsivo",
       "Optimizado para conversiones",
-      "Conectado a WhatsApp/Formulario",
-      "SEO básico incluido",
+      "Formulario de contacto",
+      "SEO técnico básico",
     ],
-    deliveryTime: "3-5 días",
+    deliveryTime: "5-7 días",
     cta: "Empezar",
     highlight: true,
   },
   {
     icon: "🏢",
-    name: "Sitios Web Profesionales",
-    description: "Webs completos con múltiples secciones y funcionalidades",
+    name: "Sitios Web + E-commerce",
+    description: "Webs completos con múltiples secciones, tiendas online y funcionalidades avanzadas",
+    priceMin: "$300.000",
+    priceMax: "$600.000",
     features: [
-      "4-5 secciones personalizadas",
+      "5-15 páginas personalizadas",
+      "Blog, portafolio o tienda online",
       "Diseño consistente y profesional",
-      "Sistema de contacto avanzado",
-      "Optimización SEO técnico",
+      "SEO técnico avanzado",
+      "Admin panel para gestionar contenido",
     ],
-    deliveryTime: "5-10 días",
+    deliveryTime: "2-3 semanas",
     cta: "Cotizar",
   },
   {
     icon: "📱",
     name: "Apps Móviles",
-    description: "Aplicaciones iOS y Android nativas con React Native",
+    description: "Aplicaciones iOS y Android con React Native + Expo",
+    priceMin: "$2.000.000",
+    priceMax: "$5.000.000",
     features: [
-      "Apps iOS + Android",
+      "iOS + Android (una codebase)",
       "Interfaz moderna y fluida",
       "Integración con APIs",
-      "Publicación en App Store",
+      "QA incluido",
+      "Publicación en App Store y Play Store",
     ],
-    deliveryTime: "2-4 semanas",
+    deliveryTime: "3-5 semanas",
     cta: "Consultar",
   },
 ];
@@ -104,6 +113,15 @@ const SERVICES = [
             <p class="text-sm text-white/65 leading-relaxed mb-5">
               {service.description}
             </p>
+
+            {/* Price Section */}
+            <div class="mb-5 p-4 rounded-lg bg-[#5b5bff]/5 border border-[#5b5bff]/20">
+              <p class="text-xs text-white/60 uppercase tracking-wide font-semibold mb-2">Precio desde</p>
+              <div class="flex items-baseline gap-2">
+                <span class="text-2xl font-bold text-[#5b5bff]">{service.priceMin}</span>
+                <span class="text-xs text-white/50">hasta {service.priceMax}</span>
+              </div>
+            </div>
 
             {/* Features */}
             <ul class="space-y-2 mb-5 flex-grow">
